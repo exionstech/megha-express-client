@@ -16,14 +16,7 @@ const Logo = (
             alt="logo"
             width={150}
             height={150}
-            className="shrink-0 md:flex hidden"
-        />
-        <Image
-            src="/logo.svg"
-            alt="logo"
-            width={100}
-            height={100}
-            className="shrink-0 md:hidden"
+            className="shrink-0"
         />
     </Link>
   )
