@@ -8,7 +8,7 @@ import MobileNav from "./mobile-nav";
 const Navbar = () => {
   return (
     <div className="fixed right-0 left-0 top-0 z-10 shadow-sm w-full bg-white">
-      <div className="max-w-screen-2xl mx-auto px-5 md:px-12 flex items-center justify-between w-full py-3">
+      <div className="max-w-screen-2xl mx-auto px-5 lg:px-12 flex items-center justify-between w-full py-3">
         <Logo />
         <div className="md:flex hidden">
             <NavitemSection/>
