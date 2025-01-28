@@ -37,7 +37,7 @@ const NavitemSection = () => {
             <Link
               href={item.link}
               className={cn(
-                "text-customBlack text-lg font-medium md:flex hidden",
+                "text-customBlack font-medium md:flex hidden",
                 active && "text-red"
               )}
             >
@@ -47,7 +47,7 @@ const NavitemSection = () => {
             <Link
               href={item.link}
               className={cn(
-                "text-customBlack text-lg font-medium md:hidden p-2 rounded-lg flex justify-center items-center bg-gray-50",
+                "text-customBlack font-medium md:hidden p-2 rounded-lg flex justify-center items-center bg-gray-50",
                 active && "text-red bg-gray-100"
               )}
             >
