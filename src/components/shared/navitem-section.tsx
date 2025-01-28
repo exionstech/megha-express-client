@@ -25,7 +25,7 @@ const navItems = [
 const NavitemSection = () => {
   const pathname = usePathname();
   return (
-    <div className="flex md:flex-row flex-col lg:gap-10 gap-5">
+    <div className="flex md:flex-row flex-col lg:gap-10 md:gap-6 gap-5">
       {navItems.map((item) => {
         const active =
           pathname === item.link ||

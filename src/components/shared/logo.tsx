@@ -10,7 +10,7 @@ const Logo = (
     { className }: LogoProps
 ) => {
   return (
-    <Link href={"/"} className={cn("cursor-pointer", className)}>
+    <Link href={"/"} className={cn("cursor-pointer select-none", className)}>
         <Image
             src="/logo.svg"
             alt="logo"
