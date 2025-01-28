@@ -25,15 +25,16 @@ const navItems = [
 const NavitemSection = () => {
   const pathname = usePathname();
   return (
-    <div className="flex md:flex-row flex-col md:gap-10 gap-5">
-      {navItems.map((item, index) => {
+    <div className="flex md:flex-row flex-col lg:gap-10 gap-5">
+      {navItems.map((item) => {
         const active =
           pathname === item.link ||
           (pathname.startsWith(item.link) && item.link !== "/");
+        
         return (
-          <>
+          <div key={item.link}>
+            {/* Desktop Link */}
             <Link
-              key={index}
               href={item.link}
               className={cn(
                 "text-customBlack text-lg font-medium md:flex hidden",
@@ -42,8 +43,8 @@ const NavitemSection = () => {
             >
               {item.title}
             </Link>
+            {/* Mobile Link */}
             <Link
-              key={index}
               href={item.link}
               className={cn(
                 "text-customBlack text-lg font-medium md:hidden p-2 rounded-lg flex justify-center items-center bg-gray-50",
@@ -52,7 +53,7 @@ const NavitemSection = () => {
             >
               {item.title}
             </Link>
-          </>
+          </div>
         );
       })}
     </div>
