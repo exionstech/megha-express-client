@@ -5,7 +5,8 @@ import { ArrowRight } from 'lucide-react'
 
 const Navbar = () => {
   return (
-    <div className='fixed right-0 left-0 top-0 z-10 shadow-sm max-w-screen-2xl mx-auto px-12 md:flex hidden items-center justify-between w-full bg-white py-3'>
+    <div className="fixed right-0 left-0 top-0 z-10 shadow-sm w-full bg-white">
+        <div className='max-w-screen-2xl mx-auto px-12 md:flex hidden items-center justify-between w-full py-3'>
         <Logo/>
       <div className="">
         navitems
@@ -14,6 +15,7 @@ const Navbar = () => {
         SHIP WITH US
         <ArrowRight className='size-6'/>
       </Button>
+    </div>
     </div>
   )
 }

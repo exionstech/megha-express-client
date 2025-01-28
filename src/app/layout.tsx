@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(poppins, "font-poppins antialiased w-full h-full min-h-screen scroll-smooth mx-auto")}>
         <Navbar/>
-        <div className="mt-[5rem]">
+        <div>
         {children}
         </div>
       </body>
