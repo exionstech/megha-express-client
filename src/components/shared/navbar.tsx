@@ -3,6 +3,7 @@ import Logo from "./logo";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import NavitemSection from "./navitem-section";
+import MobileNav from "./mobile-nav";
 
 const Navbar = () => {
   return (
@@ -16,6 +17,9 @@ const Navbar = () => {
           SHIP WITH US
           <ArrowRight className="size-6" />
         </Button>
+        <div className="md:hidden">
+        <MobileNav/>
+        </div>
       </div>
     </div>
   );

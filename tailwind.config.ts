@@ -13,6 +13,7 @@ const config: Config = {
 			poppins: ["var(--font-poppins)"],
 		  },
   		colors: {
+			customBlack:"#353535",
 			red: "#F30107",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
