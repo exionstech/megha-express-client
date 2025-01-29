@@ -23,13 +23,13 @@ const status = [
 ];
 const Services = () => {
   return (
-    <section className="w-full max-w-screen-2xl min-h-screen px-5 md:px-14 flex flex-col py-10 mx-auto gap-10">
-      <div className="w-full text-center mt-5">
+    <section className="w-full max-w-screen-2xl min-h-screen px-5 md:px-14 flex flex-col mx-auto gap-10">
+      <div className="w-full text-center">
         <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none">
           What You Can Do With Megha Express
         </h1>
       </div>
-      <div className="w-full lg:px-20 2xl:px-28 flex flex-col gap-10 mt-5 items-center">
+      <div className="w-full md:px-10 lg:px-20 2xl:px-28 flex flex-col gap-10 mt-5 items-center">
         {status.map((item) => (
           <div
             key={item.id}
@@ -42,7 +42,7 @@ const Services = () => {
               <div
                 className={cn(
                   "flex flex-col gap-4 select-none pointer-events-none",
-                  item.id % 2 === 0 && "items-end"
+                  item.id % 2 === 0 && "lg:items-end"
                 )}
               >
 
