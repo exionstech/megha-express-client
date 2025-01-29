@@ -7,7 +7,7 @@ import UniqueValue from "./_components/unique-value";
 
 export default function Home() {
   return (
-    <MaxWrapper>
+    <MaxWrapper className="flex flex-col gap-16">
       <Hero/>
       <Services/>
       <ChooseUs/>
