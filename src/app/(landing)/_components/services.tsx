@@ -29,7 +29,7 @@ const Services = () => {
           What You Can Do With Megha Express
         </h1>
       </div>
-      <div className="w-full lg:px-20 2xl:px-28 flex flex-col gap-10 mt-5 items-center">
+      <div className="w-full md:px-10 lg:px-20 2xl:px-28 flex flex-col gap-10 mt-5 items-center">
         {status.map((item) => (
           <div
             key={item.id}
@@ -42,7 +42,7 @@ const Services = () => {
               <div
                 className={cn(
                   "flex flex-col gap-4 select-none pointer-events-none",
-                  item.id % 2 === 0 && "items-end"
+                  item.id % 2 === 0 && "lg:items-end"
                 )}
               >
 
