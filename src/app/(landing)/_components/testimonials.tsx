@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,59 +13,74 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Sukumar Saha",
-    role: "Freelance Designer",
-    comment: "I've been using this web hosting service for over a year and I'm really impressed with the uptime and support. The website has never gone down and the customer service is always quick to help with any issues I have. Highly recommend!",
-    rating: 5,
-    image: "/landing/testimonials/male1.png"
-  },
-  {
-    id: 2,
-    name: "Laila Majnu",
-    role: "Software Developer",
-    comment: "I've been using this web hosting service for a few months now and overall it's been fine. The uptime has been good and I haven't had any major issues. The pricing is also reasonable. Nothing particularly stands out as exceptional, but it gets the job done.",
-    rating: 3,
-    image: "/landing/testimonials/female2.png"
-  },
-  {
-    id: 3,
-    name: "Suman Das",
-    role: "Online Entrepreneur",
-    comment: "I've been using this web hosting service for a few months and it's been nothing but problems. My website has gone down multiple times and the customer service has been unresponsive. I would not recommend this company.",
-    rating: 1,
-    image: "/landing/testimonials/male2.png"
-  }
-];
-
-const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const getVisibleTestimonials = () => {
-    const isMobile = window.innerWidth < 1024;
-    const visibleCount = isMobile ? 1 : 3;
-    const visibleItems = [];
-    
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentIndex + i) % testimonials.length;
-      visibleItems.push({
-        ...testimonials[index],
-        position: i
-      });
+    {
+      id: 1,
+      name: "Sukumar Saha",
+      role: "E-commerce Business Owner",
+      comment: "Megha Express has transformed how I handle deliveries for my online store. Their same-day delivery service and real-time tracking have significantly improved my customers' satisfaction. The delivery staff is professional and always handles packages with care. Highly recommend!",
+      rating: 5,
+      image: "/landing/testimonials/male1.png"
+    },
+    {
+      id: 2,
+      name: "Laila Majnu",
+      role: "Restaurant Chain Manager",
+      comment: "We've partnered with Megha Express for our food delivery services, and they've proven to be incredibly reliable. Their temperature-controlled delivery ensures our food reaches customers fresh and hot. The delivery times are consistent, and their customer service is excellent.",
+      rating: 5,
+      image: "/landing/testimonials/female2.png"
+    },
+    {
+      id: 3,
+      name: "Suman Das",
+      role: "Retail Store Owner",
+      comment: "As a busy retail store owner, I need a delivery partner I can count on. Megha Express handles all our local deliveries efficiently, and their bulk shipping rates are very competitive. Their tech platform makes it easy to schedule pickups and manage deliveries.",
+      rating: 4,
+      image: "/landing/testimonials/male2.png"
     }
-    return visibleItems;
-  };
+  ];
+
+  const Testimonials = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+  
+    useEffect(() => {
+      // Set initial value
+      setIsMobile(window.innerWidth < 1024);
+  
+      // Handle window resize
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+      };
+  
+      window.addEventListener('resize', handleResize);
+      
+      // Cleanup
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    };
+  
+    const prevSlide = () => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      );
+    };
+  
+    const getVisibleTestimonials = () => {
+      const visibleCount = isMobile ? 1 : 3;
+      const visibleItems = [];
+      
+      for (let i = 0; i < visibleCount; i++) {
+        const index = (currentIndex + i) % testimonials.length;
+        visibleItems.push({
+          ...testimonials[index],
+          position: i
+        });
+      }
+      return visibleItems;
+    };
 
   return (
     <section className="w-full bg-customBlue py-8">
