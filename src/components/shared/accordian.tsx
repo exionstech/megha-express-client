@@ -49,25 +49,25 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
   return (
     <motion.div
-      className={`w-full my-4 h-full cursor-pointer select-none overflow-hidden border-b-2`}
+      className={`w-full my-4 h-full cursor-pointer select-none overflow-hidden pb-1 border-b-2`}
       variants={cardVariants}
       initial="collapsed"
       animate={isExpanded ? 'expanded' : 'collapsed'}
       onClick={onToggle}
     >
-      <div className="flex items-center justify-between p-4 text-customBlack">
-        <h2 className="m-0 font-semibold text-red-500 text-sm ">{title}</h2>
+      <div className="flex items-center justify-between py-4 text-customBlack">
+        <h2 className="m-0 font-semibold text-red-500 text-sm md:text-[17px]">{title}</h2>
         <motion.div variants={chevronVariants}>
           <ChevronDown size={18} color='#353535'/>
         </motion.div>
       </div>
       <motion.div
-        className="select-none px-4 py-4"
+        className="select-none py-4"
         variants={contentVariants}
         initial="collapsed"
         animate={isExpanded ? 'expanded' : 'collapsed'}
       >
-        <p className="m-0 text-customBlack text-sm">
+        <p className="m-0 text-customBlack text-sm md:text-[17px]">
           {content}
         </p>
       </motion.div>
