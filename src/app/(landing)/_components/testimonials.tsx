@@ -89,7 +89,7 @@ const testimonials: Testimonial[] = [
           <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none">
             What You Can Do With Megha Express
           </h1>
-          <p className="text-red">
+          <p className="text-red select-none pointer-events-none">
             See what our clients say about our service, in-depth understanding,
             and timely deliveries.
           </p>
@@ -100,7 +100,7 @@ const testimonials: Testimonial[] = [
             {getVisibleTestimonials().map((testimonial, idx) => (
               <motion.div 
                 key={testimonial.id}
-                className="w-full lg:w-[calc(33.33%-1rem)] flex-shrink-0 bg-white p-4 rounded-lg shadow-sm items-center flex flex-col"
+                className="w-full lg:w-[calc(33.33%-1rem)] flex-shrink-0 bg-white p-4 rounded-lg shadow-sm items-center flex flex-col select-none pointer-events-none"
                 initial={{ x: 300, opacity: 0 }}
                 animate={{ 
                   x: 0,

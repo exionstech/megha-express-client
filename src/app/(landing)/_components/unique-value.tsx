@@ -27,7 +27,7 @@ const UniqueValue = () => {
         <div className="w-full px-2 flex flex-col gap-5">
             <div className="flex md:flex-row flex-col gap-5">
                 {/* card 1 */}
-                <div className="w-full md:w-[65%] border rounded-xl px-5 py-10">
+                <div className="w-full md:w-[65%] border rounded-xl px-5 py-10 select-none pointer-events-none">
                     <div className="flex items-center gap-3 text-red">
                         <MapPinned className="bg-rose-200 p-2 rounded-full size-8"/>
                         <h1 className="text-lg font-bold text-customBlack">Real-Time Tracking</h1>
@@ -35,7 +35,7 @@ const UniqueValue = () => {
                     <p className="text-customBlack mt-3">Track shipments in real time with accurate updates on location, delivery status, and estimated arrival times.</p>
                 </div>
                 {/* card 2 */}
-                <div className="w-full md:w-[35%] border rounded-xl px-5 py-10">
+                <div className="w-full md:w-[35%] border rounded-xl px-5 py-10 select-none pointer-events-none">
                 <div className="flex items-center gap-5 text-red">
                         <UserCheck className="bg-rose-200 p-2 rounded-full size-8"/>
                         <h1 className="text-lg font-bold text-customBlack">User-Friendly Interface</h1>
@@ -45,7 +45,7 @@ const UniqueValue = () => {
             </div>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
                 {secondColumn.map((item) => (
-                    <div key={item.title} className="w-full border rounded-xl px-5 py-10">
+                    <div key={item.title} className="w-full border rounded-xl px-5 py-10 select-none pointer-events-none">
                         <div className="flex items-center gap-5 text-red">
                             {item.icon}
                             <h1 className="text-lg font-bold text-customBlack">{item.title}</h1>
