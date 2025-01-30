@@ -14,7 +14,7 @@ const Hero = () => {
             </span>
             your best delivery partner
           </h1>
-          <p className="text-[#353535] 2xl:text-xl md:w-full lg:w-[85%]">
+          <p className="text-[#353535] 2xl:text-xl md:w-full lg:w-[85%] select-none pointer-events-none">
             Megha Express is here to revolutionize your shipping experience with
             speed, reliability, and convenience. With Megha Express, enjoy peace
             of mind knowing your shipments are in capable hands, no matter where
