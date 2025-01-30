@@ -98,7 +98,7 @@ const Footer = () => {
                 <div className="lg:w-[40%] md:w-[70%] w-full flex justify-between mt-5">
                     {footerLinks.map((item) => (
                         <Link key={item.name} href={item.link}>
-                            <span className='text-customBlack hover:underline'>{item.name}</span>
+                            <span className='text-customBlack hover:underline text-sm'>{item.name}</span>
                         </Link>
                     ))}
                 </div>
