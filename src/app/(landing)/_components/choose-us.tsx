@@ -30,16 +30,16 @@ const ChooseUs = () => {
                 />
             </div>
             <div className="md:w-1/2 w-full flex flex-col gap-5">
-                <h1 className='text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none'>Why Choose Us</h1>
+                <h1 className='text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none text-center md:text-start'>Why Choose Us</h1>
                 <div className="grid grid-cols-3 gap-3">
                     {data.map((item) => (
                         <div key={item.name} className='flex flex-col gap-2 select-none pointer-events-none'>
                             <h1 className='text-customBlack'>Up to</h1>
-                            <h2 className='text-3xl font-bold text-customBlack'>
+                            <h2 className='md:text-3xl text-2xl font-bold text-customBlack'>
                                 {item.discount}
                                 <span className='ml-2 text-sm font-normal'>OFF</span>
                             </h2>
-                            <h3 className='text-red text-sm font-medium'>{item.name}</h3>
+                            <h3 className='text-red md:text-sm text-xs font-medium'>{item.name}</h3>
                         </div>
                     ))}
                 </div>

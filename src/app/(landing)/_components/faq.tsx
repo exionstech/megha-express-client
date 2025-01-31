@@ -18,7 +18,7 @@ const accordionItems = [
 const FaqSection = () => {
   return (
     <section className='w-full max-w-screen-2xl px-5 md:px-14 2xl:px-20 mx-auto flex flex-col gap-10 items-center'>
-        <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none">
+        <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none text-center">
         Frequently asked questions
         </h1>
         <div className="w-full max-w-screen-xl mx-auto">

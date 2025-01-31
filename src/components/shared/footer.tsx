@@ -95,7 +95,14 @@ const Footer = () => {
             </div>
 
             <div className="w-full border-t-2 border-customBlack flex md:justify-end">
-                <div className="lg:w-[40%] md:w-[70%] w-full flex justify-between mt-5">
+                <div className="lg:w-[40%] md:w-[70%] w-full md:flex justify-between mt-5 hidden">
+                    {footerLinks.map((item) => (
+                        <Link key={item.name} href={item.link}>
+                            <span className='text-customBlack hover:underline text-sm'>{item.name}</span>
+                        </Link>
+                    ))}
+                </div>
+                <div className="lg:w-[40%] md:w-[70%] w-full grid grid-cols-2 md:hidden">
                     {footerLinks.map((item) => (
                         <Link key={item.name} href={item.link}>
                             <span className='text-customBlack hover:underline text-sm'>{item.name}</span>
