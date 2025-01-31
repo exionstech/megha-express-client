@@ -102,7 +102,7 @@ const Footer = () => {
                         </Link>
                     ))}
                 </div>
-                <div className="lg:w-[40%] md:w-[70%] w-full grid grid-cols-2 md:hidden">
+                <div className="lg:w-[40%] md:w-[70%] w-full grid grid-cols-2 md:hidden mt-5">
                     {footerLinks.map((item) => (
                         <Link key={item.name} href={item.link}>
                             <span className='text-customBlack hover:underline text-sm'>{item.name}</span>
