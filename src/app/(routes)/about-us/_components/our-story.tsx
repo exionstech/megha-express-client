@@ -4,7 +4,7 @@ import React from "react";
 const OurStory = () => {
   return (
     <section className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10">
-      <div className="md:w-[50%] w-full flex flex-col gap-5 text-customBlack text-center md:text-start select-none pointer-events-none">
+      <div className="md:w-[50%] w-full flex flex-col gap-5 text-customBlack text-center md:text-start select-none pointer-events-none 2xl:text-lg">
         <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack">
           Our Story
         </h1>
