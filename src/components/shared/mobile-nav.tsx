@@ -10,8 +10,10 @@ const MobileNav = () => {
         <SheetTrigger>
         <AlignJustify className="h-8 w-8 shrink-0" />
       </SheetTrigger>
-      <SheetContent className='py-20 flec flex-col gap-10' side={"left"}>
+      <SheetContent className='py-20 flex flex-col gap-10' side={"left"}>
+        <div className="flex items-center justify-center">
         <Logo/>
+        </div>
         <NavitemSection/>
       </SheetContent>
     </Sheet>
