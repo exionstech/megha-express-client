@@ -30,13 +30,12 @@ const OurStory = () => {
           fulfilled.
         </span>
       </div>
-      <div className="md:w-[50%] w-full flex items-center justify-center">
+      <div className="md:w-[50%] w-full md:aspect-[4/3] aspect-square relative select-none pointer-events-none">
         <Image
           src="/about-us/story.png"
-          width={450}
-          height={450}
           alt="Our Story"
-          className="rounded-xl shrink-0 overflow-hidden object-cover"
+          fill
+          className="rounded-xl object-cover"
         />
       </div>
     </section>
