@@ -1,4 +1,11 @@
-import Accordion from "@/components/shared/accordian";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
 
 const accordionItems = [
     {
@@ -22,7 +29,14 @@ const FaqSection = () => {
         Frequently asked questions
         </h1>
         <div className="w-full max-w-screen-xl mx-auto">
-        <Accordion items={accordionItems}/>
+            <Accordion type="single" collapsible className="w-full">
+                {accordionItems.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger>{item.title}</AccordionTrigger>
+                        <AccordionContent>{item.content}</AccordionContent>
+                    </AccordionItem>
+                ))}
+            </Accordion>
         </div>
     </section>
   )
