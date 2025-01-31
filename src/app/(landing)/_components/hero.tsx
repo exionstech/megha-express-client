@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="w-full min-h-screen 2xl:min-h-[80vh] pt-20 bg-[#E5EFFF] flex items-center justify-center">
       <div className="max-w-screen-2xl w-full mx-auto px-5 md:px-10 lg:px-14 h-full flex flex-col md:flex-row gap-5 items-center justify-center">
-        <div className="w-full md:w-1/2 2xl:w-[55%] flex flex-col gap-8">
+        <div className="w-full md:w-1/2 2xl:w-[55%] flex flex-col md:gap-8 gap-5 text-center md:text-start items-center md:items-start">
           <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-semibold text-[#353535] leading-normal select-none pointer-events-none">
             <span className="bg-gradient-to-l from-[#FF0000] to-[#0F3F8C] text-transparent bg-clip-text text-4xl lg:text-5xl 2xl:text-6xl block mb-1">
               Megha Express,
