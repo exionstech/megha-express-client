@@ -13,7 +13,7 @@ const testimonials = [
     id: 1,
     name: "Sukumar Saha",
     role: "E-commerce Business Owner",
-    comment: "Megha Express has transformed how I handle deliveries for my online store. Their same-day delivery service and real-time tracking have significantly improved my customers' satisfaction. The delivery staff is professional and always handles packages with care. Highly recommend!",
+    comment: "Megha Express has transformed how I handle deliveries. Their same-day service and tracking have improved my customers' satisfaction. Their staff is professional and careful. Highly recommend!",
     rating: 5,
     image: "/landing/testimonials/male1.png"
   },
@@ -21,7 +21,7 @@ const testimonials = [
     id: 2,
     name: "Sneha Sharma",
     role: "Restaurant Chain Manager",
-    comment: "We've partnered with Megha Express for our food delivery services, and they've proven to be incredibly reliable. Their temperature-controlled delivery ensures our food reaches customers fresh and hot. The delivery times are consistent, and their customer service is excellent.",
+    comment: "We've partnered with Megha Express for food delivery. Their temperature-controlled logistics ensure food reaches fresh and hot. Delivery times are consistent, and service is excellent.",
     rating: 5,
     image: "/landing/testimonials/female2.png"
   },
@@ -29,7 +29,7 @@ const testimonials = [
     id: 3,
     name: "Suman Das",
     role: "Retail Store Owner",
-    comment: "As a busy retail store owner, I need a delivery partner I can count on. Megha Express handles all our local deliveries efficiently, and their bulk shipping rates are very competitive. Their tech platform makes it easy to schedule pickups and manage deliveries.",
+    comment: "As a busy retailer, I need a reliable partner. Megha Express handles local deliveries efficiently, and their bulk rates are great. Their tech platform makes scheduling easy.",
     rating: 4,
     image: "/landing/testimonials/male2.png"
   },
@@ -37,7 +37,7 @@ const testimonials = [
     id: 4,
     name: "Ananya Banerjee",
     role: "Boutique Owner",
-    comment: "I run a boutique and often need quick, safe deliveries for my customers. Megha Express has been a lifesaver! Their timely and careful handling of packages keeps my customers happy.",
+    comment: "I run a boutique and need safe, quick deliveries. Megha Express has been a lifesaver! Their careful handling and on-time service keep my customers happy.",
     rating: 5,
     image: "/landing/testimonials/female3.png"
   },
@@ -45,7 +45,7 @@ const testimonials = [
     id: 5,
     name: "Rajesh Chatterjee",
     role: "Freelance Photographer",
-    comment: "I frequently send delicate photography equipment to clients. Megha Express ensures everything reaches safely and on time. Their tracking system is fantastic!",
+    comment: "I send delicate photography gear often. Megha Express ensures safe, timely deliveries. Their tracking system is excellent, keeping me and my clients updated.",
     rating: 4,
     image: "/landing/testimonials/male3.png"
   },
@@ -53,7 +53,7 @@ const testimonials = [
     id: 6,
     name: "Indrani Ghosh",
     role: "Homemade Food Seller",
-    comment: "I sell homemade snacks online and Megha Express has been the perfect delivery partner. Their punctuality and professional service keep my customers returning for more.",
+    comment: "Selling homemade snacks requires punctual deliveries. Megha Express has been a great partner with their timely, professional service. My customers love it!",
     rating: 5,
     image: "/landing/testimonials/female4.png"
   },
@@ -61,7 +61,7 @@ const testimonials = [
     id: 7,
     name: "Debojyoti Mukherjee",
     role: "IT Consultant",
-    comment: "I often need to send urgent documents and gadgets across the city. Megha Express delivers reliably every time, making my job much easier.",
+    comment: "I send urgent documents and gadgets often. Megha Express delivers reliably every time, making my job much easier. Highly dependable and professional service.",
     rating: 4,
     image: "/landing/testimonials/male4.png"
   },
@@ -69,7 +69,7 @@ const testimonials = [
     id: 8,
     name: "Madhumita Sen",
     role: "Florist",
-    comment: "Freshness matters in my business, and Megha Express ensures my flower deliveries arrive in perfect condition. Their temperature-controlled logistics are a game-changer.",
+    comment: "Fresh flowers need careful delivery, and Megha Express ensures they arrive in perfect condition. Their temperature-controlled logistics are a game-changer.",
     rating: 5,
     image: "/landing/testimonials/female5.png"
   },
@@ -77,7 +77,7 @@ const testimonials = [
     id: 9,
     name: "Abhijit Roy",
     role: "Electronics Store Owner",
-    comment: "I rely on Megha Express for secure and timely deliveries of gadgets. Their professionalism and careful handling of fragile products make them my go-to service.",
+    comment: "I rely on Megha Express for secure gadget deliveries. Their careful handling and professionalism make them my go-to service for all my store’s needs.",
     rating: 5,
     image: "/landing/testimonials/male5.png"
   },
@@ -85,11 +85,12 @@ const testimonials = [
     id: 10,
     name: "Paromita Dutta",
     role: "Handicraft Business Owner",
-    comment: "My handmade products need safe and prompt deliveries. Megha Express never disappoints, and my customers appreciate the fast shipping.",
+    comment: "My handmade products need safe, fast deliveries. Megha Express never disappoints, ensuring my customers get their orders promptly and in perfect condition.",
     rating: 4,
-    image: "/landing/testimonials/female6.png"
+    image: "/landing/testimonials/female3.png"
   }
 ];
+
 
 interface TestimonialCardProps {
   name: string;
