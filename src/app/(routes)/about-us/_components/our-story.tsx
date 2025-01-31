@@ -3,8 +3,8 @@ import React from "react";
 
 const OurStory = () => {
   return (
-    <section className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10">
-      <div className="md:w-[50%] w-full flex flex-col gap-5 text-customBlack text-center md:text-start select-none pointer-events-none 2xl:text-lg">
+    <section className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex lg:flex-row flex-col items-center gap-10">
+      <div className="lg:w-[50%] w-full flex flex-col gap-5 text-customBlack text-center md:text-start select-none pointer-events-none 2xl:text-lg">
         <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack">
           Our Story
         </h1>
@@ -30,7 +30,7 @@ const OurStory = () => {
           fulfilled.
         </span>
       </div>
-      <div className="md:w-[50%] w-full md:aspect-[4/3] aspect-square relative select-none pointer-events-none">
+      <div className="lg:w-[50%] w-full md:aspect-[4/3] aspect-square relative select-none pointer-events-none">
         <Image
           src="/about-us/story.png"
           alt="Our Story"
