@@ -83,3 +83,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.hero-bg {
+  background-image: url('/about-us/hero.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+/* .story-bg {
+  background-image: url('/about-us/story.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+} */

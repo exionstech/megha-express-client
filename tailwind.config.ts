@@ -13,6 +13,7 @@ const config: Config = {
 			poppins: ["var(--font-poppins)"],
 		  },
   		colors: {
+			darkBlue: "#053C8E",
 			customBlue: "#E5EFFF",
 			customBlack:"#353535",
 			red: "#F30107",

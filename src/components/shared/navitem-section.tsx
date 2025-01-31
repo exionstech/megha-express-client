@@ -10,7 +10,7 @@ const navItems = [
   },
   {
     title: "About",
-    link: "/about",
+    link: "/about-us",
   },
   {
     title: "Track Package",
@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     title: "Contact Us",
-    link: "/contact",
+    link: "/contact-us",
   },
 ];
 
