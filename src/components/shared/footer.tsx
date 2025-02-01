@@ -22,9 +22,9 @@ const footerLinks = [
 
 const quickLinks = [
     { name: "Home", link: "/" },
-    { name: "About us", link: "/about" },
-    { name: "Track package", link: "/track" },
-    { name: "Contact us", link: "/contact" }
+    { name: "About us", link: "/about-us" },
+    { name: "Track package", link: "/track-package" },
+    { name: "Contact us", link: "/contact-us" }
 ];
 
 const shipWithUs = [

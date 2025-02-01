@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Megha Express",
   description: "Your best delivery partner",
   icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/fav.svg",
+    apple: "/fav.svg",
   },
 };
 
