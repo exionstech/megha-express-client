@@ -5,7 +5,7 @@ const TrackPackageLayout = (
     {children}: TrackPackageLayoutProps
 ) => {
   return (
-    <div>
+    <div className="pt-14 w-full h-full">
       {children}
     </div>
   )
