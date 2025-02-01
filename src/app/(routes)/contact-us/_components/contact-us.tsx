@@ -56,7 +56,7 @@ const ContactUs = () => {
                   className="h-12"
                 />
                 {errors.name && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red text-sm">
                     {errors.name.message}
                   </span>
                 )}
@@ -70,7 +70,7 @@ const ContactUs = () => {
                   className="h-12"
                 />
                 {errors.email && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red text-sm">
                     {errors.email.message}
                   </span>
                 )}
@@ -84,7 +84,7 @@ const ContactUs = () => {
                   className="h-12"
                 />
                 {errors.phone && (
-                  <span className="text-red-500 text-sm">
+                  <span className="text-red text-sm">
                     {errors.phone.message}
                   </span>
                 )}
@@ -98,7 +98,7 @@ const ContactUs = () => {
                 className="min-h-[120px] resize-none"
               />
               {errors.message && (
-                <span className="text-red-500 text-sm">
+                <span className="text-red text-sm">
                   {errors.message.message}
                 </span>
               )}
