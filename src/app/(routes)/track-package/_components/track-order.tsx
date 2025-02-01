@@ -43,7 +43,7 @@ const TrackOrder = () => {
   };
 
   return (
-    <section className="w-full bg-slate-50">
+    <section className="w-full bg-customBlue">
       <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 py-24 flex md:flex-row flex-col items-center justify-center gap-10">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
           <h1 className="text-5xl lg:text-6xl 2xl:text-7xl text-darkBlue font-semibold text-center md:text-start select-none pointer-events-none">
@@ -77,13 +77,13 @@ const TrackOrder = () => {
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="awb" id="awb" />
-                        <Label htmlFor="awb" className="md:text-xs text-gray-600">
+                        <Label htmlFor="awb" className="md:text-xs text-customBlack">
                           AWB/ CONSIGNMENT NUMBER
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="reference" id="reference" />
-                        <Label htmlFor="reference" className="md:text-xs text-gray-600">
+                        <Label htmlFor="reference" className="md:text-xs text-customBlack">
                           REFERENCE NUMBER
                         </Label>
                       </div>
@@ -99,10 +99,10 @@ const TrackOrder = () => {
                         ? "Enter your Airway Bill Number(AWB)"
                         : "Enter your Reference Number"
                     }
-                    className={`w-full ${errors.trackingNumber ? 'border-red-500' : ''}`}
+                    className={`w-full ${errors.trackingNumber ? 'border-red' : ''}`}
                   />
                   {errors.trackingNumber && (
-                    <span className="text-red-500 text-sm">
+                    <span className="text-red text-sm">
                       {errors.trackingNumber.message}
                     </span>
                   )}
@@ -118,7 +118,7 @@ const TrackOrder = () => {
                   <h3 className="font-medium text-lg text-blue-900">
                     Can't Find Your Order Details?
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-customBlack">
                     We sent your AWB tracking number to you via Email & SMS upon
                     order confirmation.
                   </p>
