@@ -1,6 +1,6 @@
-// components/icons/CustomIcon.tsx
-import React from "react";
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface CustomIconProps {
   className?: string;
@@ -19,6 +19,15 @@ const CustomIcon: React.FC<CustomIconProps> = ({
   color,
   onClick,
 }) => {
+  const [colorFilter, setColorFilter] = useState<string>("");
+
+  useEffect(() => {
+    if (color) {
+      const filter = colorToFilter(color);
+      setColorFilter(filter);
+    }
+  }, [color]);
+
   return (
     <div
       className={`relative inline-flex items-center justify-center ${className}`}
@@ -36,7 +45,7 @@ const CustomIcon: React.FC<CustomIconProps> = ({
         height={size}
         className="w-full h-full object-contain"
         style={{ 
-          filter: color ? `brightness(0) saturate(100%) ${colorToFilter(color)}` : undefined 
+          filter: colorFilter ? `brightness(0) saturate(100%) ${colorFilter}` : undefined 
         }}
       />
     </div>
