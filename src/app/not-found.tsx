@@ -6,8 +6,8 @@ const NotFound = () => {
   return (
     <div className="w-full min-h-screen bg-white flex items-center justify-center p-4">
       <div className="max-w-2xl w-full flex flex-col items-center text-center gap-4">
-        {/* 404 SVG Illustration */}
-        <svg viewBox="0 0 400 300" className="w-full max-w-md">
+        {/* 404 SVG Illustration - reduced from max-w-md to max-w-xs */}
+        <svg viewBox="0 0 400 300" className="w-full max-w-xs">
           <path 
             d="M260 220 L300 150 L340 220" 
             fill="none" 
