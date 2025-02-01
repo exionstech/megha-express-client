@@ -43,7 +43,7 @@ const CustomIcon: React.FC<CustomIconProps> = ({
         alt={alt}
         width={size}
         height={size}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain select-none pointer-events-none"
         style={{ 
           filter: colorFilter ? `brightness(0) saturate(100%) ${colorFilter}` : undefined 
         }}

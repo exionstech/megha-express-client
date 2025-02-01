@@ -31,13 +31,13 @@ const TrackOrder = () => {
     <section className="w-full bg-customBlue">
       <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 py-24 flex md:flex-row flex-col items-center justify-center gap-10">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
-          <h1 className="text-5xl lg:text-6xl 2xl:text-7xl text-darkBlue font-semibold text-center md:text-start">
+          <h1 className="text-5xl lg:text-6xl 2xl:text-7xl text-darkBlue font-semibold text-center md:text-start select-none pointer-events-none">
             Track your <br />
             <span className="bg-gradient-to-l from-[#FF0000] to-[#0F3F8C] text-transparent bg-clip-text">
               orders easily
             </span>
           </h1>
-          <p className="text-darkBlue lg:w-[70%] text-center md:text-start md:text-lg">
+          <p className="text-darkBlue lg:w-[70%] text-center md:text-start md:text-lg select-none pointer-events-none">
             Just enter your Mobile Number, AWB tracking number or Order ID & it's
             done.
           </p>

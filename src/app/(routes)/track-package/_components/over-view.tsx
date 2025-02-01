@@ -33,7 +33,7 @@ const OverView = () => {
       {data.map((item) => (
         <div className="flex flex-col items-center justify-center gap-3">
           <CustomIcon src={item.src} alt={item.alt} size={30}/>
-          <div className="flex flex-col gap-1 text-center">
+          <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
           <h1 className="text-3xl font-semibold text-customBlack">{item.overview}</h1>
           <p className="text-customBlack">{item.des}</p>
           </div>
