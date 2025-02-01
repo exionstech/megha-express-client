@@ -129,7 +129,7 @@ const TestimonialCard = ({ name, role, comment, rating, image } : TestimonialCar
 
 const Testimonials = () => {
   return (
-    <section className="w-full bg-customBlue py-8">
+    <section className="w-full bg-customBlue py-8 relative">
       <div className="w-full max-w-screen-xl px-5 md:px-14 mx-auto flex flex-col gap-5 items-center">
         <div className="w-full text-center flex flex-col gap-3">
           <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none">
@@ -142,16 +142,6 @@ const Testimonials = () => {
         </div>
         
         <div className="relative w-full pt-10 pb-20">
-          {/* Navigation Buttons */}
-          <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 z-10">
-            <button className="custom-prev-button w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
-            </button>
-            <button className="custom-next-button w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-              <ChevronRight className="w-6 h-6 text-gray-600" />
-            </button>
-          </div>
-
           {/* Swiper */}
           <Swiper
             modules={[Navigation]}
@@ -161,8 +151,8 @@ const Testimonials = () => {
               prevEl: '.custom-prev-button',
               nextEl: '.custom-next-button',
             }}
-            loop={true}  // Enable infinite loop
-            loopAdditionalSlides={3} // Ensures smooth transition for loop
+            loop={true}
+            loopAdditionalSlides={3}
             breakpoints={{
               1024: {
                 slidesPerView: 3,
@@ -176,6 +166,16 @@ const Testimonials = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Navigation Buttons - Moved inside the section but outside the Swiper container */}
+          <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2" style={{ zIndex: 1 }}>
+            <button className="custom-prev-button w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+              <ChevronLeft className="w-6 h-6 text-gray-600" />
+            </button>
+            <button className="custom-next-button w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -189,6 +189,12 @@ const Testimonials = () => {
         .testimonials-swiper .swiper-button-disabled {
           opacity: 0.5;
           cursor: not-allowed;
+        }
+
+        /* Ensure the testimonials section stays below the navbar */
+        section {
+          position: relative;
+          z-index: 1;
         }
       `}</style>
     </section>
