@@ -90,9 +90,10 @@ body {
   background-position: center;
   overflow: hidden;
 }
-/* .story-bg {
-  background-image: url('/about-us/story.png');
+.contact-bg {
+  background-image: url('/contact-us/contact.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
-} */
+}
+
