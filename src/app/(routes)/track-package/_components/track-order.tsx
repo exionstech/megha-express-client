@@ -1,34 +1,49 @@
 "use client"
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
 
 const formSchema = z.object({
-  awbNumber: z.string().min(1, "Airway Bill Number is required"),
+  trackingType: z.enum(["awb", "reference"]),
+  trackingNumber: z.string().min(1, "This field is required")
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 const TrackOrder = () => {
-  const form = useForm<FormValues>({
+  const [trackingType, setTrackingType] = useState<"awb" | "reference">("awb");
+
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      awbNumber: "",
-    },
+      trackingType: "awb",
+      trackingNumber: ""
+    }
   });
-
-  const { register, handleSubmit, formState: { errors } } = form;
 
   const onSubmit = (data: FormValues) => {
     console.log("Form submitted:", data);
-    // Handle your form submission here
+  };
+
+  const handleTrackingTypeChange = (value: "awb" | "reference") => {
+    setTrackingType(value);
+    reset({ trackingType: value, trackingNumber: "" });
   };
 
   return (
-    <section className="w-full bg-customBlue">
+    <section className="w-full bg-slate-50">
       <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 py-24 flex md:flex-row flex-col items-center justify-center gap-10">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
           <h1 className="text-5xl lg:text-6xl 2xl:text-7xl text-darkBlue font-semibold text-center md:text-start select-none pointer-events-none">
@@ -45,33 +60,62 @@ const TrackOrder = () => {
 
         <div className="w-full md:w-[50%] flex items-center justify-center">
           <Card className="w-full max-w-md">
-            <CardHeader>
-              <CardTitle>Track Order</CardTitle>
+            <CardHeader className="pb-4">
+              <h2 className="text-xl font-semibold">Track Order</h2>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+                <Controller
+                  name="trackingType"
+                  control={control}
+                  render={({ field }) => (
+                    <RadioGroup
+                      {...field}
+                      className="flex flex-col md:flex-row gap-3 md:gap-5"
+                      defaultValue="awb"
+                      onValueChange={handleTrackingTypeChange}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="awb" id="awb" />
+                        <Label htmlFor="awb" className="md:text-xs text-gray-600">
+                          AWB/ CONSIGNMENT NUMBER
+                        </Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="reference" id="reference" />
+                        <Label htmlFor="reference" className="md:text-xs text-gray-600">
+                          REFERENCE NUMBER
+                        </Label>
+                      </div>
+                    </RadioGroup>
+                  )}
+                />
+
                 <div className="space-y-2">
                   <Input
-                    placeholder="Enter your Airway Bill Number(AWB)"
-                    {...register("awbNumber")}
-                    className="w-full"
+                    {...register("trackingNumber")}
+                    placeholder={
+                      trackingType === "awb"
+                        ? "Enter your Airway Bill Number(AWB)"
+                        : "Enter your Reference Number"
+                    }
+                    className={`w-full ${errors.trackingNumber ? 'border-red-500' : ''}`}
                   />
-                  {errors.awbNumber && (
-                    <span className="text-red text-sm">
-                        {errors.awbNumber.message}
+                  {errors.trackingNumber && (
+                    <span className="text-red-500 text-sm">
+                      {errors.trackingNumber.message}
                     </span>
                   )}
                 </div>
 
                 <Button 
                   type="submit"
-                  className="w-full text-white"
                 >
                   Track Now
                 </Button>
 
                 <div className="space-y-2">
-                  <h3 className="font-medium text-lg">
+                  <h3 className="font-medium text-lg text-blue-900">
                     Can't Find Your Order Details?
                   </h3>
                   <p className="text-sm text-gray-600">
