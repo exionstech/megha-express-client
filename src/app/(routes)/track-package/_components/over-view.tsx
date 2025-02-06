@@ -29,7 +29,8 @@ const data = [
 
 const OverView = () => {
   return (
-    <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-16 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className="w-full py-16 border-b-[1px] border-darkBlue/20">
+    <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-8">
       {data.map((item) => (
         <div className="flex flex-col items-center justify-center gap-3">
           <CustomIcon src={item.src} alt={item.alt} size={30}/>
@@ -40,6 +41,7 @@ const OverView = () => {
         </div>
       ))}
     </div>
+    </section>
   );
 };
 
