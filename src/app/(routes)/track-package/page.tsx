@@ -8,7 +8,7 @@ import ShipNow from './_components/ship-now'
 
 const AboutUs = () => {
   return (
-    <MaxWrapper className='flex flex-col gap-10 min-h-screen'>
+    <MaxWrapper className='flex flex-col min-h-screen'>
         <TrackOrder/>
         <OverView/>
         <ShipNow/>

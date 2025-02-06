@@ -38,10 +38,10 @@ const ContactUs = () => {
   return (
     <section className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto flex flex-col gap-8 py-12">
       <div className="space-y-2">
-        <h1 className="text-4xl md:text-5xl font-semibold text-customBlack">
+        <h1 className="text-3xl md:text-5xl font-semibold text-customBlack">
           Get in touch with us.
         </h1>
-        <h2 className="text-4xl md:text-5xl font-semibold text-customBlack">
+        <h2 className="text-3xl md:text-5xl font-semibold text-customBlack">
           We're here to assist you.
         </h2>
       </div>

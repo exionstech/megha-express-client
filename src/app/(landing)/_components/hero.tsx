@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -9,9 +9,9 @@ const Hero = () => {
       <div className="max-w-screen-2xl w-full mx-auto px-5 md:px-10 lg:px-14 h-full flex flex-col md:flex-row gap-5 items-center justify-center">
         <div className="w-full md:w-1/2 2xl:w-[55%] flex flex-col md:gap-8 gap-5 text-center md:text-start items-center md:items-start">
           <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-semibold text-[#353535] leading-normal select-none pointer-events-none">
-            <span className="bg-gradient-to-l from-[#FF0000] to-[#0F3F8C] text-transparent bg-clip-text text-4xl lg:text-5xl 2xl:text-6xl block mb-1">
+            <span className="bg-gradient-to-l from-[#FF0000] to-[#0F3F8C] text-transparent bg-clip-text text-4xl lg:text-5xl 2xl:text-6xl mb-1">
               Megha Express,
-            </span>
+            </span><br />
             your best delivery partner
           </h1>
           <p className="text-[#353535] 2xl:text-xl md:w-full lg:w-[85%] select-none pointer-events-none">
@@ -20,10 +20,10 @@ const Hero = () => {
             of mind knowing your shipments are in capable hands, no matter where
             they're headed.
           </p>
-          <Button className="text-white py-5 md:py-6 w-fit">
+          <Link href={"/track-package"} className="text-white bg-red rounded-lg py-2 px-3 flex w-fit items-center">
             TRACK ORDER
-            <ArrowRight className="w-6 h-6 md:w-7 md:h-7" />
-          </Button>
+            <ArrowRight className="w-6 h-6 md:w-7 md:h-7"/>
+          </Link>
         </div>
         <div className="w-full md:w-1/2 2xl:w-[45%] p-2 md:p-3 lg:p-4 overflow-hidden">
           <Image
