@@ -40,7 +40,7 @@ const LargeScreen = () => {
         </h1>
         <div className="grid grid-cols-3 gap-3">
           {data.map((item) => (
-            <div className="flex flex-col items-center justify-center gap-1">
+            <div key={item.alt} className="flex flex-col items-center justify-center gap-1">
               <CustomIcon src={item.src} alt={item.alt} size={25} />
               <div className="flex flex-col text-center select-none pointer-events-none">
                 <h1 className="text-2xl font-semibold text-customBlack">
@@ -71,9 +71,9 @@ const SmallScreen = () => {
           className="select-none pointer-events-none shrink-0"
         />
       </div>
-      <div className="w-full flex justify-between items-center px-8">
+      <div className="w-full flex justify-between items-center px-2">
       {data.slice(0,2).map((item) => (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div key={item.alt} className="flex flex-col items-center justify-center gap-2">
           <CustomIcon src={item.src} alt={item.alt} size={25}/>
           <div className="flex flex-col text-center select-none pointer-events-none">
           <h1 className="text-2xl font-semibold text-customBlack">{item.overview}</h1>
@@ -82,9 +82,9 @@ const SmallScreen = () => {
         </div>
       ))}
       </div>
-      <div className="w-full flex justify-center items-center px-8">
+      <div className="w-full flex justify-center items-center">
       {data.slice(2).map((item) => (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div key={item.alt} className="flex flex-col items-center justify-center gap-2">
           <CustomIcon src={item.src} alt={item.alt} size={25}/>
           <div className="flex flex-col text-center select-none pointer-events-none">
           <h1 className="text-2xl font-semibold text-customBlack">{item.overview}</h1>
