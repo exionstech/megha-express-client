@@ -18,10 +18,10 @@ const MobileNav = () => {
         <NavitemSection/>
         <Link
           href={"/ship-with-us"}
-          className="text-white font-medium bg-red rounded-lg py-3 px-3 flex items-center justify-center"
+          className="text-white font-medium bg-red rounded-xl py-2 px-3 flex items-center justify-center"
         >
           SHIP WITH US
-          <ArrowRight className="w-6 h-6" />
+          <ArrowRight className="w-6 h-6 ml-2" />
         </Link>
       </SheetContent>
     </Sheet>

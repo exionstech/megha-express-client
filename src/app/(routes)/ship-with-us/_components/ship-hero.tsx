@@ -40,7 +40,7 @@ const ShipWithUsHero = () => {
 
   return (
     <section className="w-full shipwith-bg">
-      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10 min-h-screen">
+      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10 py-10 mt-10 md:mt-2">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
           <h1 className="text-5xl 2xl:text-6xl text-white font-semibold text-center md:text-start select-none pointer-events-none">
             Ship with Megha<br />
@@ -56,7 +56,7 @@ const ShipWithUsHero = () => {
             <CardHeader className="pb-4">
               <h2 className="text-xl font-semibold">Request Shipping</h2>
             </CardHeader>
-            <CardContent>
+            <CardContent className="px-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
                   <FormField
@@ -64,9 +64,10 @@ const ShipWithUsHero = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel>Your Name*</FormLabel>
                         <FormControl>
                           <Input
+                            className="py-5 md:py-4"
                             placeholder="Enter your name"
                             {...field}
                           />
@@ -81,9 +82,10 @@ const ShipWithUsHero = () => {
                     name="phoneNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
+                        <FormLabel>Phone Number*</FormLabel>
                         <FormControl>
                           <Input
+                          className="py-5 md:py-4"
                             placeholder="Enter phone number"
                             type="tel"
                             {...field}
@@ -99,9 +101,10 @@ const ShipWithUsHero = () => {
                     name="shipFrom"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Ship From</FormLabel>
+                        <FormLabel>Ship From*</FormLabel>
                         <FormControl>
                           <Input
+                          className="py-5 md:py-4"
                             placeholder="Enter pickup address"
                             {...field}
                           />
@@ -116,9 +119,10 @@ const ShipWithUsHero = () => {
                     name="shipTo"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Ship To</FormLabel>
+                        <FormLabel>Ship To*</FormLabel>
                         <FormControl>
                           <Input
+                          className="py-5 md:py-4"
                             placeholder="Enter delivery address"
                             {...field}
                           />
@@ -130,7 +134,7 @@ const ShipWithUsHero = () => {
 
                   <Button 
                     type="submit"
-                    className="w-full"
+                    className="w-full py-5"
                   >
                     Submit Request
                   </Button>
