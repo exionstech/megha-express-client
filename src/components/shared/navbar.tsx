@@ -16,10 +16,10 @@ const Navbar = () => {
         </div>
         <Link
           href={"/ship-with-us"}
-          className="text-white font-medium bg-red rounded-lg py-3 px-3 md:flex w-fit items-center hidden"
+          className="text-white font-medium bg-red rounded-lg py-[10px] px-3 md:flex w-fit items-center hidden"
         >
           SHIP WITH US
-          <ArrowRight className="w-6 h-6" />
+          <ArrowRight className="w-6 h-6 ml-2" />
         </Link>
         <div className="md:hidden">
           <MobileNav />
