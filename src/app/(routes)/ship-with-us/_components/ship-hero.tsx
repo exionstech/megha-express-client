@@ -51,12 +51,12 @@ const ShipWithUsHero = () => {
           </p>
         </div>
 
-        <div className="w-full md:w-[50%] flex items-center justify-end pt-8">
+        <div className="w-full md:w-[50%] flex items-center md:justify-end justify-center pt-8">
           <Card className="w-full max-w-sm 2xl:max-w-md">
             <CardHeader className="pb-4">
               <h2 className="text-xl font-semibold">Request Shipping</h2>
             </CardHeader>
-            <CardContent className="px-8">
+            <CardContent className="px-4">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
                   <FormField

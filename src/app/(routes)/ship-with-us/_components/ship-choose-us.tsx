@@ -5,7 +5,7 @@ const ShipChooseUs = () => {
     <section className="w-full ship-choose-bg">
       <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex items-center md:justify-end py-20">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
-                <h1 className="text-5xl 2xl:text-6xl text-white font-semibold text-center md:text-start select-none pointer-events-none">
+                <h1 className="text-4xl 2xl:text-5xl text-white font-semibold text-center md:text-start select-none pointer-events-none">
                 Why Choose Us
                 </h1>
                 <p className="text-white lg:w-[90%] text-center md:text-start select-none pointer-events-none">
