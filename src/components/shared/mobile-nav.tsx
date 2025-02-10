@@ -1,8 +1,9 @@
 import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
-import { AlignJustify } from 'lucide-react';
+import { AlignJustify, ArrowRight } from 'lucide-react';
 import NavitemSection from './navitem-section';
 import Logo from './logo';
+import Link from 'next/link';
 
 const MobileNav = () => {
   return (
@@ -15,6 +16,13 @@ const MobileNav = () => {
         <Logo/>
         </div>
         <NavitemSection/>
+        <Link
+          href={"/ship-with-us"}
+          className="text-white font-medium bg-red rounded-lg py-3 px-3 flex items-center justify-center"
+        >
+          SHIP WITH US
+          <ArrowRight className="w-6 h-6" />
+        </Link>
       </SheetContent>
     </Sheet>
   )

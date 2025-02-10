@@ -20,7 +20,7 @@ const Hero = () => {
             of mind knowing your shipments are in capable hands, no matter where
             they're headed.
           </p>
-          <Link href={"/track-package"} className="text-white font-medium bg-red rounded-lg py-2 px-3 flex w-fit items-center">
+          <Link href={"/track-package"} className="text-white font-medium bg-red rounded-lg py-3 px-3 flex w-fit items-center">
             TRACK ORDER
             <ArrowRight className="w-6 h-6"/>
           </Link>

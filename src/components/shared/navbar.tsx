@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import NavitemSection from "./navitem-section";
 import MobileNav from "./mobile-nav";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -11,14 +12,17 @@ const Navbar = () => {
       <div className="max-w-screen-2xl mx-auto px-5 lg:px-12 flex items-center justify-between w-full py-3">
         <Logo />
         <div className="md:flex hidden">
-            <NavitemSection/>
+          <NavitemSection />
         </div>
-        <Button className="gap-2 text-white py-6 md:flex hidden">
+        <Link
+          href={"/ship-with-us"}
+          className="text-white font-medium bg-red rounded-lg py-3 px-3 md:flex w-fit items-center hidden"
+        >
           SHIP WITH US
-          <ArrowRight className="size-6" />
-        </Button>
+          <ArrowRight className="w-6 h-6" />
+        </Link>
         <div className="md:hidden">
-        <MobileNav/>
+          <MobileNav />
         </div>
       </div>
     </div>
