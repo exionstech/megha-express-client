@@ -97,3 +97,16 @@ body {
   overflow: hidden;
 }
 
+.shipwith-bg {
+  background-image: url('/ship-with-us/hero.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.ship-choose-bg {
+  background-image: url('/ship-with-us/truck.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
