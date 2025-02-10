@@ -3,6 +3,8 @@ import React from 'react'
 import ShipWithUsHero from './_components/ship-hero'
 import ShipOverView from './_components/ship-overview'
 import ShipChooseUs from './_components/ship-choose-us'
+import FaqSection from '@/app/(landing)/_components/faq'
+import ShipNow from './_components/ship-now'
 
 const ShipWithUsPage = () => {
   return (
@@ -10,6 +12,8 @@ const ShipWithUsPage = () => {
         <ShipWithUsHero/>
         <ShipOverView/>
         <ShipChooseUs/>
+        <ShipNow/>
+        <FaqSection/>
     </MaxWrapper>
   )
 }
