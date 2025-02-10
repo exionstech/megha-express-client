@@ -51,8 +51,8 @@ const ShipWithUsHero = () => {
           </p>
         </div>
 
-        <div className="w-full md:w-[50%] flex items-center justify-center pt-8">
-          <Card className="w-full max-w-md">
+        <div className="w-full md:w-[50%] flex items-center justify-end pt-8">
+          <Card className="w-full max-w-sm 2xl:max-w-md">
             <CardHeader className="pb-4">
               <h2 className="text-xl font-semibold">Request Shipping</h2>
             </CardHeader>
