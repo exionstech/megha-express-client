@@ -8,7 +8,7 @@ const ShipChooseUs = () => {
                 <h1 className="text-4xl 2xl:text-5xl text-white font-semibold text-center select-none pointer-events-none">
                 Why Choose Us
                 </h1>
-                <p className="text-white lg:w-[90%] text-center md:text-start select-none pointer-events-none">
+                <p className="text-white lg:w-[90%] text-center select-none pointer-events-none">
                 Choose Megha Express for fast, reliable, and hassle-free shipping. We offer affordable rates, real-time tracking, and secure deliveries to ensure your packages reach their destination safely and on time. Our dedicated customer support team is always ready to assist you, making your shipping experience smooth and stress-free. Trust Megha Express for all your delivery needs!
                 </p>
         </div>
