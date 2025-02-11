@@ -46,7 +46,7 @@ const reachUs = [
 
 const Footer = () => {
   return (
-    <section className='w-full bg-customBlue mt-14 py-10'>
+    <section className='w-full bg-customBlue mt-14 py-14'>
         <div className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto flex flex-col gap-5">
             <div className="w-full flex md:flex-row flex-col gap-8 md:justify-between">
                     <Logo/>
