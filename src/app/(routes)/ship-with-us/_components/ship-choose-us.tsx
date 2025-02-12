@@ -3,7 +3,7 @@ import React from "react";
 const ShipChooseUs = () => {
   return (
     <section className="w-full ship-choose-bg">
-      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex items-center py-20">
+      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex items-center justify-center py-20">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
                 <h1 className="text-4xl 2xl:text-5xl text-white font-semibold text-center select-none pointer-events-none">
                 Why Choose Us
