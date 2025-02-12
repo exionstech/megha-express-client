@@ -45,9 +45,9 @@ const OverView = () => {
                   value={parseInt(item.overview)}
                   className="text-3xl font-semibold text-customBlack"
                 />
-              <h1 className="text-3xl font-semibold text-customBlack">
-                {item.quantity}
-              </h1>
+                <h1 className="text-3xl font-semibold text-customBlack">
+                  {item.quantity}
+                </h1>
               </div>
               <p className="text-customBlack">{item.des}</p>
             </div>
