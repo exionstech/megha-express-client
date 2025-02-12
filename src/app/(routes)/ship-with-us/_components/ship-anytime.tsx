@@ -4,17 +4,17 @@ const data = [
   {
     name: "Reliable Shipping",
     image: "/ship-with-us/any-time/scuty.png",
-    desc: "Standard, Express, or Same-Day!",
+    desc: "Choose from Standard, Express, or Same-Day to get your items delivered on time, every time!",
   },
   {
     name: "Global Shipping",
     image: "/ship-with-us/any-time/global.png",
-    desc: "Fast, secure delivery worldwide.",
+    desc: "Enjoy Fast, Secure Delivery Worldwide for all your shipping needs and beyond, with seamless tracking.",
   },
   {
     name: "Flexible Delivery ",
     image: "/ship-with-us/any-time/clock.png",
-    desc: "Easy scheduled & on-demand shipping.",
+    desc: "Easy Scheduled & On-Demand Shipping, Tailored to Fit Your Busy Lifestyle with Reliable and Flexible Options!",
   },
 ];
 

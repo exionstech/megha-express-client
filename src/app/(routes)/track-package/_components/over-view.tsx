@@ -10,8 +10,8 @@ const data = [
   {
     src: "/track-order/doller.svg",
     alt: "doller",
-    overview: "Upto 40%",
-    des: "reduction in cost",
+    overview: "200+",
+    des: "international countries",
   },
   {
     src: "/track-order/car.svg",
