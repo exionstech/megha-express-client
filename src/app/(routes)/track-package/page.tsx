@@ -3,6 +3,7 @@ import React from 'react'
 import TrackOrder from './_components/track-order'
 import OverView from './_components/over-view'
 import ShipNow from './_components/ship-now'
+import FaqSection from './_components/faq'
 
 
 
@@ -12,6 +13,7 @@ const AboutUs = () => {
         <TrackOrder/>
         <OverView/>
         <ShipNow/>
+        <FaqSection/>
     </MaxWrapper>
   )
 }
