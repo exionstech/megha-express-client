@@ -7,12 +7,12 @@ import ShipChooseUs from "./_components/ship-choose-us";
 
 export default function Home() {
   return (
-    <MaxWrapper className="flex flex-col gap-16">
+    <MaxWrapper className="flex flex-col">
       <Hero/>
       <ShipChooseUs/>
       <UniqueValue/>
       <Testimonials/>
-      <FaqSection/>
+      <FaqSection className="mt-16"/>
     </MaxWrapper>
   );
 }

@@ -4,8 +4,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { cn } from "@/lib/utils";
 
-
+interface FaqSectionProps {
+  className?: string;
+}
 
 const accordionItems = [
     {
@@ -22,9 +25,11 @@ const accordionItems = [
     }
   ];
 
-const FaqSection = () => {
+const FaqSection = (
+  { className }: FaqSectionProps
+) => {
   return (
-    <section className='w-full max-w-screen-2xl px-5 md:px-14 2xl:px-20 mx-auto flex flex-col gap-10 items-center'>
+    <section className={cn('w-full max-w-screen-2xl px-5 md:px-14 2xl:px-20 mx-auto flex flex-col gap-10 items-center', className)}>
         <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none text-center">
         Frequently asked questions
         </h1>
