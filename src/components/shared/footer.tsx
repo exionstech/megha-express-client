@@ -49,8 +49,8 @@ const Footer = () => {
     <section className='w-full bg-customBlue mt-14 py-14'>
         <div className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto flex flex-col gap-5">
             <div className="w-full flex md:flex-row flex-col gap-8 md:justify-between">
-                    <Logo/>
-                <div className="grid lg:grid-cols-4 grid-cols-2 gap-y-8 gap-x-0 md:gap-x-5 overflow-hidden">
+                <Logo/>
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-y-8 gap-x-0 md:gap-x-5 overflow-hidden">
                     {/* Quick Links Section */}
                     <div className="flex flex-col gap-2">
                         <h3 className="font-semibold text-lg select-none pointer-events-none">Quick Links</h3>
@@ -86,8 +86,7 @@ const Footer = () => {
                         <h3 className="font-semibold text-lg select-none pointer-events-none">Reach us</h3>
                         {reachUs.map((item) => (
                             <div key={item.name} className="flex flex-col">
-                                <span className='text-customBlack text-sm md:hidden'>{item.value}</span>
-                                <span className='text-customBlack md:flex hidden'>{item.value}</span>
+                                <span className='text-customBlack text-sm break-words w-full'>{item.value}</span>
                             </div>
                         ))}
                     </div>

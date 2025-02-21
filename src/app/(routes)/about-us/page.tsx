@@ -3,7 +3,7 @@ import React from 'react'
 import AboutHero from './_components/about-hero'
 import OurStory from './_components/our-story'
 import OurMisson from './_components/our-misson'
-import ShipNow from './_components/ship-now'
+import ShipNow from '../../../components/shared/ship-now'
 
 const AboutUs = () => {
   return (
