@@ -84,7 +84,19 @@ body {
   }
 }
 
-.hero-bg {
+.hero {
+  background-image: url('/landing/hero/hero.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.ship-now {
+  background-image: url('/common/ship-now/bg.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.about-hero {
   background-image: url('/about-us/hero.png');
   background-size: cover;
   background-position: center;

@@ -1,3 +1,4 @@
+import Heading from "@/components/shared/heading"
 import { MapPinned, UserCheck, ShieldCheck, Globe, CreditCard } from "lucide-react"
 
 const secondColumn = [
@@ -21,9 +22,7 @@ const secondColumn = [
 const UniqueValue = () => {
   return (
     <section className='w-full max-w-screen-2xl px-5 md:px-14 2xl:px-20 mx-auto flex flex-col gap-10 items-center mt-16'>
-        <h1 className="text-center text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none">
-        Our Unique Value Proposition
-        </h1>
+        <Heading title={"Our Unique Value Proposition"}/>
         <div className="w-full flex flex-col gap-5">
             <div className="flex md:flex-row flex-col gap-5">
                 {/* card 1 */}

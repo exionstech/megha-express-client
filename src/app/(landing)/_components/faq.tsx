@@ -1,3 +1,4 @@
+import Heading from "@/components/shared/heading";
 import {
   Accordion,
   AccordionContent,
@@ -30,9 +31,7 @@ const FaqSection = (
 ) => {
   return (
     <section className={cn('w-full max-w-screen-2xl px-5 md:px-14 2xl:px-20 mx-auto flex flex-col gap-10 items-center', className)}>
-        <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none text-center">
-        Frequently asked questions
-        </h1>
+        <Heading title={"Frequently asked questions"}/>
         <div className="w-full max-w-screen-xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
                 {accordionItems.map((item, index) => (

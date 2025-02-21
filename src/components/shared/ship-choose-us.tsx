@@ -1,31 +1,31 @@
 import CustomIcon from "@/components/shared/custom-icon";
 import { NumberTicker } from "@/components/shared/number-ticker";
-import { cn } from "@/lib/utils";
+import Heading from "./heading";
 
 const data = [
   {
-    src: "/track-order/location.svg",
+    src: "/common/ship-choose-us/location.svg",
     alt: "location",
     overview: "24000",
     quantity: "+",
     des: "pin codes covered",
   },
   {
-    src: "/track-order/doller.svg",
+    src: "/common/ship-choose-us/doller.svg",
     alt: "doller",
     overview: "200",
     quantity: "+",
     des: "international countries",
   },
   {
-    src: "/track-order/car.svg",
+    src: "/common/ship-choose-us/car.svg",
     alt: "Track Order",
     overview: "50",
     quantity: "k+",
     des: "tonnes PTL delivered",
   },
   {
-    src: "/track-order/contact.svg",
+    src: "/common/ship-choose-us/contact.svg",
     alt: "Track Order",
     overview: "2000",
     quantity: "+",
@@ -33,34 +33,33 @@ const data = [
   },
 ];
 
-interface IShipOverView {
-  className?: string;
-}
-
-const ShipOverView = (
-  { className }: IShipOverView
-) => {
+const ShipChooseUs = () => {
   return (
-    <section className={cn("w-full max-w-screen-2xl mx-auto px-5 md:px-16 py-16 grid grid-cols-2 md:grid-cols-4 gap-8", className)}>
-      {data.map((item) => (
+    <section className="w-full ship-choose-bg">
+      <div className="w-full max-w-screen-2xl aspect-square md:aspect-[3/1] mx-auto px-5 md:px-14 flex flex-col gap-10 items-center justify-center">
+      <Heading title="Why choose us" className="text-white"/>
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8">
+        {data.map((item) => (
         <div className="flex flex-col items-center justify-center gap-3">
-          <CustomIcon src={item.src} alt={item.alt} size={30} />
+          <CustomIcon src={item.src} alt={item.alt} size={35} />
           <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
             <div className="flex items-center justify-center">
               <NumberTicker
                 value={parseInt(item.overview)}
-                className="text-3xl font-semibold text-customBlack"
+                className="text-3xl font-medium text-white"
               />
-              <h1 className="text-3xl font-semibold text-customBlack">
+              <h1 className="text-3xl font-medium text-white">
                 {item.quantity}
               </h1>
             </div>
-            <p className="text-customBlack">{item.des}</p>
+            <p className="text-white">{item.des}</p>
           </div>
         </div>
       ))}
+        </div>
+      </div>
     </section>
   );
 };
 
-export default ShipOverView;
+export default ShipChooseUs;
