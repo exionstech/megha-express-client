@@ -133,7 +133,7 @@ const Testimonials = () => {
       <div className="w-full max-w-screen-xl px-5 md:px-14 mx-auto flex flex-col gap-5 items-center">
         <div className="w-full text-center flex flex-col gap-3">
           <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none">
-            What You Can Do With Megha Express
+            What other says
           </h1>
           <p className="text-red select-none">
             See what our clients say about our service, in-depth understanding,

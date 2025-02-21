@@ -4,11 +4,13 @@ import FaqSection from "./_components/faq";
 import UniqueValue from "./_components/unique-value";
 import Testimonials from "./_components/testimonials";
 import ShipChooseUs from "./_components/ship-choose-us";
+import WhatWeDo from "@/components/shared/what-we-do";
 
 export default function Home() {
   return (
     <MaxWrapper className="flex flex-col">
       <Hero/>
+      <WhatWeDo/>
       <ShipChooseUs/>
       <UniqueValue/>
       <Testimonials/>
