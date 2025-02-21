@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import Heading from '@/components/shared/heading';
 
 const testimonials = [
   {
@@ -132,9 +133,7 @@ const Testimonials = () => {
     <section className="w-full bg-customBlue py-10 md:py-14 relative mt-16">
       <div className="w-full max-w-screen-xl px-5 md:px-14 mx-auto flex flex-col gap-5 items-center">
         <div className="w-full text-center flex flex-col gap-3">
-          <h1 className="text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none">
-            What other says
-          </h1>
+          <Heading title='What other says'/>
           <p className="text-red select-none">
             See what our clients say about our service, in-depth understanding,
             and timely deliveries.

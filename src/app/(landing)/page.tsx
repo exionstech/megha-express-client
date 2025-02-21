@@ -3,7 +3,7 @@ import Hero from "./_components/hero";
 import FaqSection from "./_components/faq";
 import UniqueValue from "./_components/unique-value";
 import Testimonials from "./_components/testimonials";
-import ShipChooseUs from "./_components/ship-choose-us";
+import ShipChooseUs from "../../components/shared/ship-choose-us";
 import WhatWeDo from "@/components/shared/what-we-do";
 
 export default function Home() {

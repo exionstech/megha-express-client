@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Heading from "./heading";
 
 const data = [
   {
@@ -36,9 +37,7 @@ const data = [
 const WhatWeDo = () => {
   return (
     <section className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 py-14 flex flex-col gap-10">
-      <h1 className="text-center text-3xl lg:text-4xl 2xl:text-5xl font-medium text-customBlack select-none pointer-events-none">
-        What we do
-      </h1>
+      <Heading title={"What we do"}/>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((item) => (
           <div
@@ -51,7 +50,7 @@ const WhatWeDo = () => {
               alt={item.title}
               width={400}
               height={400}
-              className="shrink-0 object-cover"
+              className="shrink-0 object-cover rounded-sm"
             />
             </div>
             <h1 className="text-2xl font-semibold text-center">{item.title}</h1>
