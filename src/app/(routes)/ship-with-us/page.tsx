@@ -10,7 +10,7 @@ const ShipWithUsPage = () => {
   return (
     <MaxWrapper className='flex flex-col min-h-screen'>
         <ShipWithUsHero/>
-        <ShipOverView className='border-b-[1px] border-customBlack'/>
+        <ShipOverView className='bg-slate-100'/>
         <WhatWeDo/>
         <ShipNow/>
         <FaqSection className='pt-10'/>

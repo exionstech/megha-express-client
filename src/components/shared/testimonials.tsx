@@ -1,13 +1,13 @@
 "use client"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, EffectFade } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Heading from '@/components/shared/heading';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
-import Heading from '@/components/shared/heading';
+import 'swiper/css/autoplay';
 
 const testimonials = [
   {
@@ -78,7 +78,7 @@ const testimonials = [
     id: 9,
     name: "Abhijit Roy",
     role: "Electronics Store Owner",
-    comment: "I rely on Megha Express for secure gadget deliveries. Their careful handling and professionalism make them my go-to service for all my store’s needs.",
+    comment: "I rely on Megha Express for secure gadget deliveries. Their careful handling and professionalism make them my go-to service for all my store's needs.",
     rating: 5,
     image: "/landing/testimonials/male5.png"
   },
@@ -91,7 +91,6 @@ const testimonials = [
     image: "/landing/testimonials/female3.png"
   }
 ];
-
 
 interface TestimonialCardProps {
   name: string;
@@ -127,7 +126,6 @@ const TestimonialCard = ({ name, role, comment, rating, image } : TestimonialCar
   );
 };
 
-
 const Testimonials = () => {
   return (
     <section className="w-full bg-customBlue py-10 md:py-14 relative mt-16">
@@ -143,12 +141,17 @@ const Testimonials = () => {
         <div className="relative w-full pt-10 pb-20">
           {/* Swiper */}
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
             navigation={{
               prevEl: '.custom-prev-button',
               nextEl: '.custom-next-button',
+            }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
             }}
             loop={true}
             loopAdditionalSlides={3}
@@ -199,7 +202,5 @@ const Testimonials = () => {
     </section>
   );
 };
-
-
 
 export default Testimonials;

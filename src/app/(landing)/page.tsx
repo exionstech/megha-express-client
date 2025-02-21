@@ -2,7 +2,7 @@ import { MaxWrapper } from "@/components/shared/max-wrapper";
 import Hero from "./_components/hero";
 import FaqSection from "./_components/faq";
 import UniqueValue from "./_components/unique-value";
-import Testimonials from "./_components/testimonials";
+import Testimonials from "../../components/shared/testimonials";
 import ShipChooseUs from "../../components/shared/ship-choose-us";
 import WhatWeDo from "@/components/shared/what-we-do";
 
