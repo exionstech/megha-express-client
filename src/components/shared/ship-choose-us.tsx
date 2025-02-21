@@ -1,21 +1,61 @@
-import React from "react";
+import CustomIcon from "@/components/shared/custom-icon";
+import { NumberTicker } from "@/components/shared/number-ticker";
+import Heading from "./heading";
+
+const data = [
+  {
+    src: "/common/ship-choose-us/location.svg",
+    alt: "location",
+    overview: "24000",
+    quantity: "+",
+    des: "pin codes covered",
+  },
+  {
+    src: "/common/ship-choose-us/doller.svg",
+    alt: "doller",
+    overview: "200",
+    quantity: "+",
+    des: "international countries",
+  },
+  {
+    src: "/common/ship-choose-us/car.svg",
+    alt: "Track Order",
+    overview: "50",
+    quantity: "k+",
+    des: "tonnes PTL delivered",
+  },
+  {
+    src: "/common/ship-choose-us/contact.svg",
+    alt: "Track Order",
+    overview: "2000",
+    quantity: "+",
+    des: "happy clients",
+  },
+];
 
 const ShipChooseUs = () => {
   return (
     <section className="w-full ship-choose-bg">
-      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex items-center justify-center py-20">
-        <div className="w-full md:w-[50%] flex flex-col gap-5">
-          <h1 className="text-4xl 2xl:text-5xl text-white font-semibold text-center select-none pointer-events-none">
-            Why Choose Us
-          </h1>
-          <p className="text-white lg:w-[90%] text-center select-none pointer-events-none">
-            Choose Megha Express for fast, reliable, and hassle-free shipping.
-            We offer affordable rates, real-time tracking, and secure deliveries
-            to ensure your packages reach their destination safely and on time.
-            Our dedicated customer support team is always ready to assist you,
-            making your shipping experience smooth and stress-free. Trust Megha
-            Express for all your delivery needs!
-          </p>
+      <div className="w-full max-w-screen-2xl aspect-square md:aspect-[3/1] mx-auto px-5 md:px-14 flex flex-col gap-10 items-center justify-center">
+      <Heading title="Why choose us" className="text-white"/>
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8">
+        {data.map((item) => (
+        <div className="flex flex-col items-center justify-center gap-3">
+          <CustomIcon src={item.src} alt={item.alt} size={35} />
+          <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
+            <div className="flex items-center justify-center">
+              <NumberTicker
+                value={parseInt(item.overview)}
+                className="text-3xl font-medium text-white"
+              />
+              <h1 className="text-3xl font-medium text-white">
+                {item.quantity}
+              </h1>
+            </div>
+            <p className="text-white">{item.des}</p>
+          </div>
+        </div>
+      ))}
         </div>
       </div>
     </section>
