@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <body className={cn(poppins, "font-poppins antialiased w-full h-full min-h-screen scroll-smooth mx-auto")}>
         <Navbar/>
         {children}

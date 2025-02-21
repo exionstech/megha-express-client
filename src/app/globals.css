@@ -84,6 +84,12 @@ body {
   }
 }
 
+.hero {
+  background-image: url('/landing/hero/hero.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
 .hero-bg {
   background-image: url('/about-us/hero.png');
   background-size: cover;
