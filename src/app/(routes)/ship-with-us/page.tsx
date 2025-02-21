@@ -3,19 +3,17 @@ import React from 'react'
 import ShipWithUsHero from './_components/ship-hero'
 import ShipOverView from './_components/ship-overview'
 import FaqSection from '@/app/(landing)/_components/faq'
-import ShipAnytime from './_components/ship-anytime'
-import ShipChooseUs from '@/components/shared/ship-choose-us'
 import ShipNow from '@/components/shared/ship-now'
+import WhatWeDo from '@/components/shared/what-we-do'
 
 const ShipWithUsPage = () => {
   return (
     <MaxWrapper className='flex flex-col min-h-screen'>
         <ShipWithUsHero/>
-        <ShipOverView/>
-        <ShipChooseUs/>
-        <ShipAnytime/>
+        <ShipOverView className='border-b-[1px] border-customBlack'/>
+        <WhatWeDo/>
         <ShipNow/>
-        <FaqSection/>
+        <FaqSection className='pt-10'/>
     </MaxWrapper>
   )
 }

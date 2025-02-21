@@ -1,5 +1,6 @@
 import CustomIcon from "@/components/shared/custom-icon";
 import { NumberTicker } from "@/components/shared/number-ticker";
+import { cn } from "@/lib/utils";
 
 const data = [
   {
@@ -32,9 +33,15 @@ const data = [
   },
 ];
 
-const ShipOverView = () => {
+interface IShipOverView {
+  className?: string;
+}
+
+const ShipOverView = (
+  { className }: IShipOverView
+) => {
   return (
-    <section className="w-full max-w-screen-2xl mx-auto px-5 md:px-16 py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section className={cn("w-full max-w-screen-2xl mx-auto px-5 md:px-16 py-16 grid grid-cols-2 md:grid-cols-4 gap-8", className)}>
       {data.map((item) => (
         <div className="flex flex-col items-center justify-center gap-3">
           <CustomIcon src={item.src} alt={item.alt} size={30} />
