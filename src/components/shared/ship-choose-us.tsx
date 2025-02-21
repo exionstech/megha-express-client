@@ -36,7 +36,7 @@ const data = [
 const ShipChooseUs = () => {
   return (
     <section className="w-full ship-choose-bg">
-      <div className="w-full max-w-screen-2xl aspect-square md:aspect-[3/1] mx-auto px-5 md:px-14 flex flex-col gap-10 items-center justify-center">
+      <div className="w-full max-w-screen-2xl aspect-[1/1.2] md:aspect-[4/1.5] lg:aspect-[4/1.2] mx-auto px-5 md:px-14 flex flex-col gap-10 items-center justify-center">
       <Heading title="Why choose us" className="text-white"/>
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8">
         {data.map((item) => (
