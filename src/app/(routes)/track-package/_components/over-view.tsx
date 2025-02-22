@@ -36,8 +36,10 @@ const OverView = () => {
   return (
     <section className="w-full py-16">
       <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {data.map((item) => (
-          <div className="flex flex-col items-center justify-center gap-3">
+        {data.map((item, index) => (
+          <div 
+            key={index}
+          className="flex flex-col items-center justify-center gap-3">
             <CustomIcon src={item.src} alt={item.alt} size={30} />
             <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
               <div className="flex items-center justify-center">

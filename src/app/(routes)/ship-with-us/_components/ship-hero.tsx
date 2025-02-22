@@ -40,7 +40,7 @@ const ShipWithUsHero = () => {
 
   return (
     <section className="w-full shipwith-bg">
-      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10 py-10 mt-10 md:mt-2">
+      <div className="w-full max-w-screen-2xl mx-auto px-5 md:px-14 flex md:flex-row flex-col items-center gap-10 py-14 mt-10 md:mt-2">
         <div className="w-full md:w-[50%] flex flex-col gap-5">
           <h1 className="text-4xl md:text-5xl 2xl:text-6xl text-white font-semibold text-center md:text-start select-none pointer-events-none">
             Ship with Megha<br />
@@ -52,7 +52,7 @@ const ShipWithUsHero = () => {
         </div>
 
         <div className="w-full md:w-[50%] flex items-center md:justify-end justify-center pt-8">
-          <Card className="w-full max-w-[24rem] 2xl:max-w-md">
+          <Card className="w-full max-w-[26rem] 2xl:max-w-md">
             <CardHeader className="pb-4">
               <h2 className="text-xl font-semibold">Request Shipping</h2>
             </CardHeader>

@@ -40,7 +40,7 @@ const helpAndSupport = [
 ];
 
 const reachUs = [
-    { name: "Email", value: "support@meghaexpress.com" },
+    { name: "Email", value: "meghaexpress18@gmail.com" },
     { name: "Phone", value: "+91 98765 41230" }
 ];
 
