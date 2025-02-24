@@ -44,12 +44,12 @@ const WhatWeDo = () => {
             key={item.title}
             className="w-full border-r-[0.01px] border-b-[0.01px] border-black/10 rounded-xl shadow-lg p-5 select-none pointer-events-none flex flex-col gap-5"
           >
-            <div className="w-full">
+            <div className="w-full flex items-center justify-center">
             <Image
               src={item.imageUrl}
               alt={item.title}
-              width={400}
-              height={400}
+              width={450}
+              height={450}
               className="shrink-0 object-cover rounded-sm"
             />
             </div>
