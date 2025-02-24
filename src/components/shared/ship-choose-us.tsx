@@ -39,8 +39,10 @@ const ShipChooseUs = () => {
       <div className="w-full max-w-screen-2xl aspect-[1/1.2] md:aspect-[4/1.5] lg:aspect-[4/1.2] mx-auto px-5 md:px-14 flex flex-col gap-10 items-center justify-center">
       <Heading title="Why choose us" className="text-white"/>
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8">
-        {data.map((item) => (
-        <div className="flex flex-col items-center justify-center gap-3">
+        {data.map((item, index) => (
+        <div
+          key={index}
+         className="flex flex-col items-center justify-center gap-3">
           <CustomIcon src={item.src} alt={item.alt} size={35} />
           <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
             <div className="flex items-center justify-center">
