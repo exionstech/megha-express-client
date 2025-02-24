@@ -37,30 +37,34 @@ interface IShipOverView {
   className?: string;
 }
 
-const ShipOverView = (
-  { className }: IShipOverView
-) => {
+const ShipOverView = ({ className }: IShipOverView) => {
   return (
-    <section className={cn("w-full mx-auto px-5 md:px-16 py-16 grid grid-cols-2 md:grid-cols-4 gap-8", className)}>
-      {data.map((item, index) => (
-        <div
-          key={index}
-          className="flex flex-col items-center justify-center gap-3">
-          <CustomIcon src={item.src} alt={item.alt} size={30} />
-          <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
-            <div className="flex items-center justify-center">
-              <NumberTicker
-                value={parseInt(item.overview)}
-                className="text-3xl font-semibold text-customBlack"
-              />
-              <h1 className="text-3xl font-semibold text-customBlack">
-                {item.quantity}
-              </h1>
+    <section className={cn("w-full", className)}>
+      <div
+        className=
+          "w-full max-w-screen-2xl mx-auto px-5 md:px-16 py-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+      >
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center gap-3"
+          >
+            <CustomIcon src={item.src} alt={item.alt} size={30} />
+            <div className="flex flex-col gap-1 text-center select-none pointer-events-none">
+              <div className="flex items-center justify-center">
+                <NumberTicker
+                  value={parseInt(item.overview)}
+                  className="text-3xl font-semibold text-customBlack"
+                />
+                <h1 className="text-3xl font-semibold text-customBlack">
+                  {item.quantity}
+                </h1>
+              </div>
+              <p className="text-customBlack">{item.des}</p>
             </div>
-            <p className="text-customBlack">{item.des}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
