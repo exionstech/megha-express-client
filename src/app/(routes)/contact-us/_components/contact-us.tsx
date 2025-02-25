@@ -40,7 +40,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto flex gap-6 my-10">
+    <section className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto flex md:flex-row flex-col gap-6 my-10">
       <div className="w-full md:w-1/2 flex flex-col gap-4">
         <h1 className="text-3xl md:text-5xl font-semibold text-customBlack">
           Get in touch with us. We're here to assist you.
@@ -72,8 +72,8 @@ const ContactUs = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex flex-col gap-4">
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full px-6 h-full">
+      <div className="w-full md:w-1/2 flex items-center flex-col pt-5 gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full md:px-6 h-full">
           <div className="flex flex-col gap-4">
             <Input
               placeholder="Your Name"
