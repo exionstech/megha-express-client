@@ -53,7 +53,7 @@ const WhatWeDo = () => {
               className="shrink-0 object-cover rounded-sm"
             />
             </div>
-            <h1 className="text-2xl font-semibold text-center">{item.title}</h1>
+            <h1 className="text-2xl font-semibold text-center capitalize">{item.title}</h1>
             <p className="text-center">{item.des}</p>
           </div>
         ))}
