@@ -24,6 +24,7 @@ import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import useLocation from "@/hooks/useLocation";
 import { ICity, IState } from "country-state-city";
+import { PhoneInput } from "@/components/ui/phone-number-input";
 
 const schema = z.object({
   firstName: z.string().min(1, "Name must be at least 1 characters"),
@@ -92,7 +93,7 @@ const ApplyForm = () => {
   useEffect(() => {
     const selectedState = form.watch("state");
     const selectedCountry = form.watch("country");
-    
+
     if (selectedCountry && selectedState) {
       const stateCities = getStateCities(selectedCountry, selectedState);
       if (stateCities) {
@@ -102,6 +103,8 @@ const ApplyForm = () => {
       form.setValue("city", "");
     }
   }, [form.watch("state")]);
+
+
 
   const onSubmit = (values: FormValues) => {
     setIsLoading(true);
@@ -122,7 +125,11 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>First Name*</FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your firstname" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your firstname"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -135,7 +142,11 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>Last Name*</FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your lastname" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your lastname"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -148,7 +159,11 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>Email*</FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your email" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your email"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -161,9 +176,10 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>Contact Number*</FormLabel>
                     <FormControl>
-                      <Input className="h-10"
-                        placeholder="Enter your contact number"
+                      <PhoneInput
+                        placeholder="Enter your mobile number"
                         {...field}
+                        defaultCountry="IN"
                       />
                     </FormControl>
                     <FormMessage />
@@ -187,7 +203,11 @@ const ApplyForm = () => {
                       </span>
                     </FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your company name" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your company name"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -205,7 +225,11 @@ const ApplyForm = () => {
                       </span>
                     </FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your gst number" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your gst number"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -224,7 +248,11 @@ const ApplyForm = () => {
                     </span>
                   </FormLabel>
                   <FormControl>
-                    <Input className="h-10" placeholder="Enter your Address" {...field} />
+                    <Input
+                      className="h-10"
+                      placeholder="Enter your Address"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -243,7 +271,11 @@ const ApplyForm = () => {
                       </span>
                     </FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your landmark" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your landmark"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -255,9 +287,6 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Country*</FormLabel>
-                    <FormDescription className="text-xs">
-                      Select your country
-                    </FormDescription>
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -291,9 +320,6 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>State*</FormLabel>
-                    <FormDescription className="text-xs">
-                      Select your state
-                    </FormDescription>
                     <Select
                       disabled={isLoading || states.length < 1}
                       onValueChange={field.onChange}
@@ -308,10 +334,7 @@ const ApplyForm = () => {
                       </SelectTrigger>
                       <SelectContent>
                         {states.map((state) => (
-                          <SelectItem
-                            key={state.isoCode}
-                            value={state.isoCode}
-                          >
+                          <SelectItem key={state.isoCode} value={state.isoCode}>
                             {state.name}
                           </SelectItem>
                         ))}
@@ -327,9 +350,6 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>City*</FormLabel>
-                    <FormDescription className="text-xs">
-                      Select your city
-                    </FormDescription>
                     <Select
                       disabled={isLoading || cities.length < 1}
                       onValueChange={field.onChange}
@@ -344,10 +364,7 @@ const ApplyForm = () => {
                       </SelectTrigger>
                       <SelectContent>
                         {cities.map((city) => (
-                          <SelectItem
-                            key={city.name}
-                            value={city.name}
-                          >
+                          <SelectItem key={city.name} value={city.name}>
                             {city.name}
                           </SelectItem>
                         ))}
@@ -364,7 +381,11 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>District*</FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your district" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your district"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -377,7 +398,11 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>Pincode*</FormLabel>
                     <FormControl>
-                      <Input className="h-10" placeholder="Enter your pincode" {...field} />
+                      <Input
+                        className="h-10"
+                        placeholder="Enter your pincode"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -386,13 +411,13 @@ const ApplyForm = () => {
             </div>
           </div>
           <div className="flex justify-end">
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="flex gap-2 items-center"
               disabled={isLoading}
             >
-              {isLoading ? 'Submitting...' : 'Apply'}
-              <ChevronRight className="w-7 h-7"/>
+              {isLoading ? "Submitting..." : "Apply"}
+              <ChevronRight className="w-7 h-7" />
             </Button>
           </div>
         </form>
