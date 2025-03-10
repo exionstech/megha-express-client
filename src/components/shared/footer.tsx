@@ -24,7 +24,8 @@ const quickLinks = [
     { name: "Home", link: "/" },
     { name: "About us", link: "/about-us" },
     { name: "Track package", link: "/track-package" },
-    { name: "Contact us", link: "/contact-us" }
+    { name: "Contact us", link: "/contact-us" },
+    { name: "Apply for franchise", link: "/apply" }
 ];
 
 const shipWithUs = [
