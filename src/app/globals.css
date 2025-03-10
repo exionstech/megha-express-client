@@ -108,6 +108,12 @@ body {
   background-position: center;
   overflow: hidden;
 }
+.apply-bg {
+  background-image: url('/apply/hero.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
 
 .shipwith-bg {
   background-image: url('/ship-with-us/hero.png');
