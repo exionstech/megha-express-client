@@ -7,13 +7,23 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import useLocation from "@/hooks/useLocation";
+import { ICity, IState } from "country-state-city";
 
 const schema = z.object({
   firstName: z.string().min(1, "Name must be at least 1 characters"),
@@ -24,9 +34,9 @@ const schema = z.object({
   gstNum: z.string().optional(),
   address: z.string().min(1, "Address must be at least 1 characters"),
   landmark: z.string().optional(),
-  country: z.string().min(1, "Country must be at least 1 characters"),
-  state: z.string().min(1, "State must be at least 1 characters"),
-  city: z.string().min(1, "City must be at least 1 characters"),
+  country: z.string().min(1, "Country selection is required"),
+  state: z.string().min(1, "State selection is required"),
+  city: z.string().min(1, "City selection is required"),
   district: z.string().min(1, "District must be at least 1 characters"),
   pincode: z.string().min(1, "Pincode must be at least 1 characters"),
 });
@@ -34,6 +44,20 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const ApplyForm = () => {
+  const [states, setStates] = useState<IState[]>([]);
+  const [cities, setCities] = useState<ICity[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    getAllCountries,
+    getCountryByCode,
+    getStateByCode,
+    getCountryStates,
+    getStateCities,
+  } = useLocation();
+
+  const countries = getAllCountries();
+
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -53,9 +77,37 @@ const ApplyForm = () => {
     },
   });
 
+  useEffect(() => {
+    const selectedCountry = form.watch("country");
+    if (selectedCountry) {
+      const countryStates = getCountryStates(selectedCountry);
+      if (countryStates) {
+        setStates(countryStates);
+      }
+      form.setValue("state", "");
+      form.setValue("city", "");
+    }
+  }, [form.watch("country")]);
+
+  useEffect(() => {
+    const selectedState = form.watch("state");
+    const selectedCountry = form.watch("country");
+    
+    if (selectedCountry && selectedState) {
+      const stateCities = getStateCities(selectedCountry, selectedState);
+      if (stateCities) {
+        setCities(stateCities);
+      }
+
+      form.setValue("city", "");
+    }
+  }, [form.watch("state")]);
+
   const onSubmit = (values: FormValues) => {
+    setIsLoading(true);
     console.log(values);
   };
+
   return (
     <div className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto">
       <Form {...form}>
@@ -178,7 +230,7 @@ const ApplyForm = () => {
                 </FormItem>
               )}
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
               <FormField
                 control={form.control}
                 name="landmark"
@@ -203,9 +255,32 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Country*</FormLabel>
-                    <FormControl>
-                      <Input className="h-10" placeholder="Enter your country" {...field} />
-                    </FormControl>
+                    <FormDescription className="text-xs">
+                      Select your country
+                    </FormDescription>
+                    <Select
+                      disabled={isLoading}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger className="h-10 bg-background">
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select Your Country"
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {countries.map((country) => (
+                          <SelectItem
+                            key={country.isoCode}
+                            value={country.isoCode}
+                          >
+                            {country.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -216,9 +291,32 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>State*</FormLabel>
-                    <FormControl>
-                      <Input className="h-10" placeholder="Enter your state" {...field} />
-                    </FormControl>
+                    <FormDescription className="text-xs">
+                      Select your state
+                    </FormDescription>
+                    <Select
+                      disabled={isLoading || states.length < 1}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger className="h-10 bg-background">
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select Your State"
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {states.map((state) => (
+                          <SelectItem
+                            key={state.isoCode}
+                            value={state.isoCode}
+                          >
+                            {state.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -229,9 +327,32 @@ const ApplyForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>City*</FormLabel>
-                    <FormControl>
-                      <Input className="h-10" placeholder="Enter your city" {...field} />
-                    </FormControl>
+                    <FormDescription className="text-xs">
+                      Select your city
+                    </FormDescription>
+                    <Select
+                      disabled={isLoading || cities.length < 1}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger className="h-10 bg-background">
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select Your City"
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city.name}
+                            value={city.name}
+                          >
+                            {city.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -265,8 +386,12 @@ const ApplyForm = () => {
             </div>
           </div>
           <div className="flex justify-end">
-            <Button type="submit" className="flex gap-2 items-center">
-              Apply
+            <Button 
+              type="submit" 
+              className="flex gap-2 items-center"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Submitting...' : 'Apply'}
               <ChevronRight className="w-7 h-7"/>
             </Button>
           </div>
