@@ -23,8 +23,7 @@ const WaitingScreen = () => {
           back and relax—we’ve got you covered!
         </p>
         <Link
-          target="_blank"
-          href="https://meghaexpress.in/contact-us">
+          href="/contact-us">
           <Button className="mt-4">
             Contact For Query
           </Button>
