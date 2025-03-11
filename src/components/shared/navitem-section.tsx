@@ -20,6 +20,10 @@ const navItems = [
     title: "Contact Us",
     link: "/contact-us",
   },
+  {
+    title: "Apply for Hub",
+    link: "/apply",
+  },
 ];
 
 const NavitemSection = () => {
