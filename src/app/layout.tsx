@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
+import { Providers } from "@/providers/provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,10 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body className={cn(poppins, "font-poppins antialiased w-full h-full min-h-screen scroll-smooth mx-auto")}>
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body
+        className={cn(
+          poppins,
+          "font-poppins antialiased w-full h-full min-h-screen scroll-smooth mx-auto"
+        )}
+      >
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
