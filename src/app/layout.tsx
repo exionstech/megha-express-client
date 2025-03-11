@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { Providers } from "@/providers/provider";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Toaster />
       </body>
     </html>
   );
