@@ -11,7 +11,6 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription,
 } from "@/components/ui/form";
 import {
   Select,
@@ -20,11 +19,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 import useLocation from "@/hooks/useLocation";
 import { ICity, IState } from "country-state-city";
 import { PhoneInput } from "@/components/ui/phone-number-input";
+import { Textarea } from "@/components/ui/textarea";
+import { useMutation } from "@tanstack/react-query";
+import { FranchiseApiInstance } from "@/lib/apis";
+import { toast } from "sonner";
+import WaitingScreen from "./waiting-screen";
 
 const schema = z.object({
   firstName: z.string().min(1, "Name must be at least 1 characters"),
@@ -47,12 +51,10 @@ type FormValues = z.infer<typeof schema>;
 const ApplyForm = () => {
   const [states, setStates] = useState<IState[]>([]);
   const [cities, setCities] = useState<ICity[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     getAllCountries,
-    getCountryByCode,
-    getStateByCode,
     getCountryStates,
     getStateCities,
   } = useLocation();
@@ -70,7 +72,7 @@ const ApplyForm = () => {
       gstNum: "",
       address: "",
       landmark: "",
-      country: "",
+      country: "IN",
       state: "",
       city: "",
       district: "",
@@ -105,19 +107,43 @@ const ApplyForm = () => {
   }, [form.watch("state")]);
 
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: async (values: FormValues) => {
+      const apiData = {
+        ...values
+      }
+      const res = await FranchiseApiInstance.post("/apply", apiData);
+      if (res.status !== 200) throw new Error("Failed to apply Franchise");
+      const json = res.data;
+      if (!json.success)
+        throw new Error(json.message || "Failed to apply Franchise");
+      return json;
+    },
+    onSuccess: () => {
+      setIsSubmitting(false);
+      toast.success("Successfully applied for Franchise");
+      return <WaitingScreen/>
+    },
+    onError: () => {
+      setIsSubmitting(false);
+      toast.error("Failed to apply Franchise");
+    }
+
+  })
 
   const onSubmit = (values: FormValues) => {
-    setIsLoading(true);
+    setIsSubmitting(false);
+    mutate(values);
     console.log(values);
   };
 
   return (
     <div className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
-          <div className="flex flex-col gap-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="flex flex-col gap-4 md:gap-6">
             <h1 className="text-3xl font-medium mb-4">Personal Details</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <FormField
                 control={form.control}
                 name="firstName"
@@ -188,9 +214,9 @@ const ApplyForm = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4 md:gap-6">
             <h1 className="text-3xl font-medium mb-4">Company Details</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <FormField
                 control={form.control}
                 name="companyName"
@@ -236,44 +262,22 @@ const ApplyForm = () => {
                 )}
               />
             </div>
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Address
-                    <span className="text-muted-foreground ml-2">
-                      (address of the place where you want to setup your hub)
-                    </span>
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      className="h-10"
-                      placeholder="Enter your Address"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
+            <div className="w-full flex items-center flex-col md:flex-row gap-8">
               <FormField
                 control={form.control}
-                name="landmark"
+                name="address"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <FormLabel>
-                      Landmark
+                      Address
                       <span className="text-muted-foreground ml-2">
-                        (Optional)
+                        (address of the place where you want to setup your hub)
                       </span>
                     </FormLabel>
                     <FormControl>
-                      <Input
-                        className="h-10"
-                        placeholder="Enter your landmark"
+                      <Textarea
+                        className="h-[120px] resize-none"
+                        placeholder="Enter your Address"
                         {...field}
                       />
                     </FormControl>
@@ -283,12 +287,36 @@ const ApplyForm = () => {
               />
               <FormField
                 control={form.control}
+                name="landmark"
+                render={({ field }) => (
+                  <FormItem className="w-full">
+                    <FormLabel>
+                      Nearby Landmark
+                      <span className="text-muted-foreground ml-2">
+                        (Optional)
+                      </span>
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        className="h-[120px] resize-none"
+                        placeholder="Enter your landmark"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
+              <FormField
+                control={form.control}
                 name="country"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Country*</FormLabel>
                     <Select
-                      disabled={isLoading}
+                      disabled={isSubmitting}
                       onValueChange={field.onChange}
                       value={field.value}
                       defaultValue={field.value}
@@ -321,7 +349,7 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>State*</FormLabel>
                     <Select
-                      disabled={isLoading || states.length < 1}
+                      disabled={isSubmitting || states.length < 1}
                       onValueChange={field.onChange}
                       value={field.value}
                       defaultValue={field.value}
@@ -351,7 +379,7 @@ const ApplyForm = () => {
                   <FormItem>
                     <FormLabel>City*</FormLabel>
                     <Select
-                      disabled={isLoading || cities.length < 1}
+                      disabled={isSubmitting || cities.length < 1}
                       onValueChange={field.onChange}
                       value={field.value}
                       defaultValue={field.value}
@@ -414,10 +442,11 @@ const ApplyForm = () => {
             <Button
               type="submit"
               className="flex gap-2 items-center"
-              disabled={isLoading}
+              disabled={isSubmitting || isPending}
             >
-              {isLoading ? "Submitting..." : "Apply"}
-              <ChevronRight className="w-7 h-7" />
+              {isPending  ? "Applying..." : "Apply"}
+              {isPending ? <Loader className="w-5 h-5"/> 
+              : <ChevronRight className="w-5 h-5" />}
             </Button>
           </div>
         </form>
