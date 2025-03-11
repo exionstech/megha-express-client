@@ -134,7 +134,6 @@ const ApplyForm = () => {
   const onSubmit = (values: FormValues) => {
     setIsSubmitting(false);
     mutate(values);
-    console.log(values);
   };
 
   return (
