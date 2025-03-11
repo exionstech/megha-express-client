@@ -52,11 +52,13 @@ const ApplyForm = () => {
   const [states, setStates] = useState<IState[]>([]);
   const [cities, setCities] = useState<ICity[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const {
     getAllCountries,
     getCountryStates,
     getStateCities,
+    getCountryByCode
   } = useLocation();
 
   const countries = getAllCountries();
@@ -106,12 +108,28 @@ const ApplyForm = () => {
     }
   }, [form.watch("state")]);
 
+  // Function to add "+" prefix to pincode if not already present
+  const formatPincode = (pincode: string) => {
+    if (!pincode.startsWith("+")) {
+      return "+" + pincode;
+    }
+    return pincode;
+  };
+
+  // Function to get full country name from country code
+  const getFullCountryName = (countryCode: string) => {
+    const country = getCountryByCode(countryCode);
+    return country ? country.name : countryCode;
+  };
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (values: FormValues) => {
       const apiData = {
-        ...values
-      }
+        ...values,
+        pincode: formatPincode(values.pincode),
+        country: getFullCountryName(values.country)
+      };
+      
       const res = await FranchiseApiInstance.post("/apply", apiData);
       if (res.status !== 200) throw new Error("Failed to apply Franchise");
       const json = res.data;
@@ -122,14 +140,13 @@ const ApplyForm = () => {
     onSuccess: () => {
       setIsSubmitting(false);
       toast.success("Successfully applied for Franchise");
-      return <WaitingScreen/>
+      setIsSubmitted(true);
     },
     onError: () => {
-      setIsSubmitting(false);
+      setIsSubmitting(true);
       toast.error("Failed to apply Franchise");
     }
-
-  })
+  });
 
   const onSubmit = (values: FormValues) => {
     setIsSubmitting(false);
@@ -138,7 +155,10 @@ const ApplyForm = () => {
 
   return (
     <div className="w-full max-w-screen-2xl px-5 md:px-14 mx-auto">
-      <Form {...form}>
+      {isSubmitted ? (
+        <WaitingScreen />
+      ) : (
+        <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex flex-col gap-4 md:gap-6">
             <h1 className="text-3xl font-medium mb-4">Personal Details</h1>
@@ -443,13 +463,14 @@ const ApplyForm = () => {
               className="flex gap-2 items-center"
               disabled={isSubmitting || isPending}
             >
-              {isPending  ? "Applying..." : "Apply"}
-              {isPending ? <Loader className="w-5 h-5"/> 
+              {isPending ? "Applying..." : "Apply"}
+              {isPending ? <Loader className="w-5 h-5 animate-spin"/> 
               : <ChevronRight className="w-5 h-5" />}
             </Button>
           </div>
         </form>
       </Form>
+      )}
     </div>
   );
 };
