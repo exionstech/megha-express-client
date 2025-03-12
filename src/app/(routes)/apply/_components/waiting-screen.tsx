@@ -15,12 +15,12 @@ const WaitingScreen = () => {
           alt="Verify Success"
         />
         <h1 className="text-2xl font-bold mt-4">
-          Hang Tight! We’re Reviewing Your KYC
+          Hang Tight! We&apos;re Reviewing Your Application
         </h1>
         <p className="text-center mt-4 md:w-[70%]">
-          We’re on it! 🔍 Your KYC is currently under review, and we’ll update
-          you as soon as it’s done. This usually takes 2-3 business days, so sit
-          back and relax—we’ve got you covered!
+          We&apos;re on it! 🔍 Your Application is currently under review, and we&apos;ll update
+          you as soon as it&apos;s done. This usually takes 2-3 business days, so sit
+          back and relax—we&apos;ve got you covered!
         </p>
         <Link
           href="/contact-us">
